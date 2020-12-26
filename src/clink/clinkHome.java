@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.util.Collections;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -242,7 +243,7 @@ public class clinkHome extends javax.swing.JFrame {
         y = evt.getY();
     }//GEN-LAST:event_formMousePressed
 
-    protected void clink() throws InterruptedException{
+    protected void clink() throws InterruptedException, IOException{
         System.setProperty("webdriver.chrome.driver", "drv.exe");
 //        System.setProperty("webdriver.chrome.driver", "drv.exe");
 

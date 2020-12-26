@@ -95,7 +95,7 @@ public class Bot{
         for(WebElement order:orders){
                 //click the more button
                 try{
-                    wait.until(ExpectedConditions.elementToBeClickable(order.findElement(By.className("expandButton__expand")))).click();
+                    wait.until(ExpectedConditions.elementToBeClickable(order.findElement(By.className("ExpandButton__Expand-sc-7arbkz-0")))).click();
                     System.out.println("expand btn clicked");
                     displayLog.append("Bidding order... \n");
                     
