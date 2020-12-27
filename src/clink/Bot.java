@@ -17,6 +17,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -95,14 +96,32 @@ public class Bot{
         for(WebElement order:orders){
                 //click the more button
                 try{
-                    wait.until(ExpectedConditions.elementToBeClickable(order.findElement(By.className("ExpandButton__Expand-sc-7arbkz-0")))).click();
+                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__meta']/div[@class='orderA__actions']/button[contains(.,'More')]"))).click();
                     System.out.println("expand btn clicked");
                     displayLog.append("Bidding order... \n");
                     
-                }catch(Exception e){
-                    e.printStackTrace();
+                }catch(ElementClickInterceptedException e){
+//                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@aria-label='Close']")));
+//                    driver.findElement(By.xpath("//span[@aria-label='Close']")).click();
+                    displayLog.append("clicking the more button was intercepted, fixing... \n");
+                    Config.errorFileWriter(e.toString());
+                    continue;
+                }
+                catch(StaleElementReferenceException e){
+                    Config.errorFileWriter(e.toString());
+                    displayLog.append("the \"more\" button is stale, fixing... \n");
+                    driver.navigate().refresh();
+                    continue;
+                    //this will try clicking the element again and refreshes on failure
+//                    if(retryingFindClick(driver,"//button[contains(., 'More')]")==false){
+//                        driver.navigate().refresh();
+//                        continue;
+//                    }
+                }
+                catch(Exception e){
                     Config.errorFileWriter(e.toString());
                     displayLog.append("failed to click the more button, fixing... \n");
+                    driver.navigate().refresh();
                     continue;
                 }
               
@@ -134,10 +153,19 @@ public class Bot{
 
                 //click start bidding button
                 try{
-                  order.findElement(By.className("styled__MakeBidButton-sc-1p6owd5-9")).click();
-                }catch(Exception e){
+                  order.findElement(By.xpath("//button[contains(., 'Start bidding')]")).click();
+                }
+                catch(NoSuchElementException e){
+//                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@aria-label='Close']")));
+                    Config.errorFileWriter(e.toString());
+                    driver.navigate().refresh();
+                    continue;
+                }
+                catch(Exception e){
                     System.out.println(e);
                     Config.errorFileWriter(e.toString());
+//                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@aria-label='Close']")));
+                    driver.navigate().refresh();
                     continue;
                 }
                 //end of click start bidding button  
@@ -219,6 +247,22 @@ public class Bot{
         
     
    }
+   
+   public static boolean retryingFindClick(WebDriver driver,String xpath) {
+     WebDriverWait wait=new WebDriverWait(driver,2);
+    boolean result = false;
+    int attempts = 0;
+    while(attempts < 4) {
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath))).click();
+            result = true;
+            break;
+        } catch(StaleElementReferenceException e) {
+        }
+        attempts++;
+    }
+    return result;
+}
    
    public static void exitBrowser(WebDriver driver){
        driver.close();
