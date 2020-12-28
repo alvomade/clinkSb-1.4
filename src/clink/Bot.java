@@ -101,9 +101,10 @@ public class Bot{
                     displayLog.append("Bidding order... \n");
                     
                 }catch(ElementClickInterceptedException e){
-//                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@aria-label='Close']")));
-//                    driver.findElement(By.xpath("//span[@aria-label='Close']")).click();
+                    driver.navigate().refresh();
                     displayLog.append("clicking the more button was intercepted, fixing... \n");
+//                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@aria-label='Close']"))).click();
+//                    driver.findElement(By.xpath("//span[@aria-label='Close']")).click();
                     Config.errorFileWriter(e.toString());
                     continue;
                 }
@@ -140,7 +141,8 @@ public class Bot{
                   List<String> list = Arrays.asList(filter);
                   
                   if(list.contains(subject)){
-                    order.findElement(By.className("expandButton__expand")).click();
+                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__meta']/div[@class='orderA__actions']/button[contains(.,'Hide')]"))).click();
+                    //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]
                     displayLog.append(subject+" is unwanted, looking for new orders... \n");
                     continue;
                   }
