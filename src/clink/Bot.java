@@ -47,20 +47,20 @@ public class Bot{
    public static boolean login(WebDriver driver,String email,String password){
        //open the browser and log in
     driver.get("https://studybay.app/");
-    
-    WebDriverWait waitForEmailField=new WebDriverWait(driver,10);
-    WebElement emailField=waitForEmailField.until(ExpectedConditions.visibilityOfElementLocated(By.name("email")));
-    emailField.sendKeys(email);
-    
-    WebDriverWait waitForPassField=new WebDriverWait(driver,10);
-    WebElement passField=waitForPassField.until(ExpectedConditions.visibilityOfElementLocated(By.name("password")));
-    passField.sendKeys(password);
-    
+    //email
+    WebDriverWait wait=new WebDriverWait(driver,10);
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email"))).sendKeys(email);
+    //password
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("password"))).sendKeys(password);
+    //submit
     driver.findElement(By.xpath("//button")).sendKeys(Keys.RETURN);
 
+    //wrong_email_password
     try{
-    WebDriverWait waitForLogin=new WebDriverWait(driver,10);
-    WebElement loginError=waitForLogin.until(ExpectedConditions.visibilityOfElementLocated(By.className("cx-login-form-error")));
+    if(wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='error__Error-umhoec-0 iiYsnI']"))).isDisplayed()){
+        isLoggedIn=false;
+    }    
+    
     }catch(Exception e){
         isLoggedIn=true;
         driver.get("https://studybay.app/order/search");
@@ -80,12 +80,14 @@ public class Bot{
            driver.navigate().refresh();
         }
         //end of first time refresh
+        //order_list
         while(i>=0){
         List<WebElement> orders=driver.findElements(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium'] "));
         
         //if no new order,wait before refresh
         if(orders.size()<=0){
          driver.manage().timeouts().implicitlyWait(delay, TimeUnit.SECONDS);
+         //order_list 
          orders=driver.findElements(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium'] "));
         }
         
@@ -94,7 +96,7 @@ public class Bot{
         displayLog.append("-----------------------------------------------------------------------------"+"\n");
         
         for(WebElement order:orders){
-                //click the more button
+                //more
                 try{
                     wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__meta']/div[@class='orderA__actions']/button[contains(.,'More')]"))).click();
                     System.out.println("expand btn clicked");
@@ -128,11 +130,12 @@ public class Bot{
               
                  //check for unwanted orders
                 if(filter.length>0){
-                  String cart=order.findElement(By.className("orderA__category")).getText();
-                  String[] cartArray=cart.split(",");
+                  //subject
+                  String subjectPlusType=order.findElement(By.className("orderA__category")).getText();
+                  String[] subjectPlusTypeArray=subjectPlusType.split(",");
                   String subject;
                   try{
-                      subject=cartArray[1];
+                      subject=subjectPlusTypeArray[1];
                   }catch(ArrayIndexOutOfBoundsException e){
                       subject="nothing";
                   }
@@ -141,6 +144,7 @@ public class Bot{
                   List<String> list = Arrays.asList(filter);
                   
                   if(list.contains(subject)){
+                    //close
                     wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__meta']/div[@class='orderA__actions']/button[contains(.,'Hide')]"))).click();
                     //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]
                     displayLog.append(subject+" is unwanted, looking for new orders... \n");
@@ -155,6 +159,7 @@ public class Bot{
 
                 //click start bidding button
                 try{
+                   //start_bidding 
                   order.findElement(By.xpath("//button[contains(., 'Start bidding')]")).click();
                 }
                 catch(NoSuchElementException e){
@@ -166,13 +171,12 @@ public class Bot{
                 catch(Exception e){
                     System.out.println(e);
                     Config.errorFileWriter(e.toString());
-//                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@aria-label='Close']")));
                     driver.navigate().refresh();
                     continue;
                 }
                 //end of click start bidding button  
        
-                  //message placing
+                  //message_dropDown
                   try{
                        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='styled__Field-sc-13g4w8f-1 ePCfsj'])[last()]"))).click();
                      }catch(Exception e){
@@ -183,7 +187,7 @@ public class Bot{
                         continue;
                     }
                     
-                        
+                    //message_select    
                         try{
                         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='styled__Wrapper-sc-4f1cbs-0 gTBVTO'])[last()]"))).click();
                         System.out.println("message placed"); 
@@ -199,12 +203,12 @@ public class Bot{
                     //end of message placing
                     
                     if(!priceLevel.equalsIgnoreCase("none")){   
-                    //extract prces ranges from modal
+                    //min,max,average
                         minPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span[@class='styled__Amount-qyovge-7 cTVHAe'])[last()]"))).getText().substring(1);
                         avPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span[@class='styled__Amount-qyovge-7 gQtpqC'])[last()]"))).getText().substring(1);
                         maxPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span[@class='styled__Amount-qyovge-7 gSIIkh'])[last()]"))).getText().substring(1);
                           
-              
+                        //price_input
                         WebElement inputAmount=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@class='styled__Wrapper-sc-1novt9v-2 fLTTlZ']/div/div/input)[last()]")));
 
                             switch(priceLevel){
@@ -227,7 +231,7 @@ public class Bot{
                             
                     }
 //                     end of check price level
-                    
+                        //start_bidding
                         try{
                         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='ui-modal-content']/div[@class='ui-modal-body']/div/div[@class='sb-makeOffer__actions']/div/button[1])[last()]"))).click();
                         }

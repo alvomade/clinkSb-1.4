@@ -304,7 +304,7 @@ public class clinkHome extends javax.swing.JFrame {
            Bot.bid(driver,delay, priceLevel,bidOn,filterArray, displayLog); 
            
        }else{
-       displayLog.append("error, signing in, restart and enter the correct login details...\n");
+       displayLog.append("error, signing in, relaunch and enter the correct login details...\n");
        }
        
         
