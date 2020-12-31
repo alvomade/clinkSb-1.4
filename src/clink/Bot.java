@@ -5,24 +5,25 @@
  */
 package clink;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -43,21 +44,54 @@ public class Bot{
         int numberOfOrders = Integer.parseInt(foundArray[1]);
        return numberOfOrders;
    } 
-   
+   public static JSONArray selectors(){
+       try {
+           URL url = new URL("https://sb.clink.co.ke/getElements.php");
+           HttpURLConnection httpURLConnection=(HttpURLConnection)url.openConnection();
+           httpURLConnection.setRequestMethod("GET");
+           
+           String line="";
+           InputStreamReader inputStreamReader=new InputStreamReader(httpURLConnection.getInputStream());
+           BufferedReader bufferedReader=new BufferedReader(inputStreamReader);
+           StringBuilder response=new StringBuilder();
+           while ((line=bufferedReader.readLine())!=null){
+               response.append(line);
+           }
+           bufferedReader.close();
+
+           //adding square brackets t0 make a valid json array
+           String datas="["+response+"]";
+           JSONArray jsonArray=new JSONArray(response.toString());
+           
+           JSONObject rec = jsonArray.getJSONObject(0);
+           System.out.println(jsonArray.getJSONObject(2).getString("locator"));
+           System.out.println("Submit "+ jsonArray);
+           
+           
+           return jsonArray;
+           
+       }catch (Exception e){
+           System.out.println("Error in Making Get Request"+e);
+           return null;
+       }            
+   }
    public static boolean login(WebDriver driver,String email,String password){
+       JSONArray jsonArray = Bot.selectors();
+       
        //open the browser and log in
     driver.get("https://studybay.app/");
+    
     //email
     WebDriverWait wait=new WebDriverWait(driver,10);
-    wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email"))).sendKeys(email);
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.name(jsonArray.getJSONObject(0).getString("locator")))).sendKeys(email);
     //password
-    wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("password"))).sendKeys(password);
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.name(jsonArray.getJSONObject(1).getString("locator")))).sendKeys(password);
     //submit
-    driver.findElement(By.xpath("//button")).sendKeys(Keys.RETURN);
+    driver.findElement(By.xpath(jsonArray.getJSONObject(2).getString("locator"))).sendKeys(Keys.RETURN);
 
     //wrong_email_password
     try{
-    if(wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='error__Error-umhoec-0 iiYsnI']"))).isDisplayed()){
+    if(wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(jsonArray.getJSONObject(15).getString("locator")))).isDisplayed()){
         isLoggedIn=false;
     }    
     
@@ -72,6 +106,7 @@ public class Bot{
    public static void bid(WebDriver driver,int delay,String priceLevel,String bidOn,String[] filter, javax.swing.JTextArea displayLog) throws InterruptedException, IOException{
        int errorHeperer=0;
         int i=0;     
+        JSONArray jsonArray = Bot.selectors();
         WebDriverWait wait=new WebDriverWait(driver,15);
         
        //first time refresh
@@ -82,13 +117,14 @@ public class Bot{
         //end of first time refresh
         //order_list
         while(i>=0){
-        List<WebElement> orders=driver.findElements(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium'] "));
-        
+        //List<WebElement> orders=driver.findElements(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium'] "));
+        List<WebElement> orders=driver.findElements(By.xpath(jsonArray.getJSONObject(3).getString("locator")));
         //if no new order,wait before refresh
         if(orders.size()<=0){
          driver.manage().timeouts().implicitlyWait(delay, TimeUnit.SECONDS);
          //order_list 
-         orders=driver.findElements(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium'] "));
+         //orders=driver.findElements(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium'] "));
+         orders=driver.findElements(By.xpath(jsonArray.getJSONObject(3).getString("locator")));
         }
         
         System.out.println("found "+orders.size()+" orders");
@@ -98,7 +134,8 @@ public class Bot{
         for(WebElement order:orders){
                 //more
                 try{
-                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__meta']/div[@class='orderA__actions']/button[contains(.,'More')]"))).click();
+                    //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__meta']/div[@class='orderA__actions']/button[contains(.,'More')]"))).click();
+                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath(jsonArray.getJSONObject(4).getString("locator")))).click();
                     System.out.println("expand btn clicked");
                     displayLog.append("Bidding order... \n");
                     
@@ -131,7 +168,8 @@ public class Bot{
                  //check for unwanted orders
                 if(filter.length>0){
                   //subject
-                  String subjectPlusType=order.findElement(By.className("orderA__category")).getText();
+                  //String subjectPlusType=order.findElement(By.className("orderA__category")).getText();
+                  String subjectPlusType=order.findElement(By.className(jsonArray.getJSONObject(5).getString("locator"))).getText();
                   String[] subjectPlusTypeArray=subjectPlusType.split(",");
                   String subject;
                   try{
@@ -145,7 +183,8 @@ public class Bot{
                   
                   if(list.contains(subject)){
                     //close
-                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__meta']/div[@class='orderA__actions']/button[contains(.,'Hide')]"))).click();
+                    //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__meta']/div[@class='orderA__actions']/button[contains(.,'Hide')]"))).click();
+                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath(jsonArray.getJSONObject(6).getString("locator")))).click();
                     //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]
                     displayLog.append(subject+" is unwanted, looking for new orders... \n");
                     continue;
@@ -160,7 +199,8 @@ public class Bot{
                 //click start bidding button
                 try{
                    //start_bidding 
-                  order.findElement(By.xpath("//button[contains(., 'Start bidding')]")).click();
+                  //order.findElement(By.xpath("//button[contains(., 'Start bidding')]")).click();
+                  order.findElement(By.xpath(jsonArray.getJSONObject(7).getString("locator"))).click();
                 }
                 catch(NoSuchElementException e){
 //                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@aria-label='Close']")));
@@ -178,7 +218,8 @@ public class Bot{
        
                   //message_dropDown
                   try{
-                       wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='styled__Field-sc-13g4w8f-1 ePCfsj'])[last()]"))).click();
+                       //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='styled__Field-sc-13g4w8f-1 ePCfsj'])[last()]"))).click();
+                       wait.until(ExpectedConditions.elementToBeClickable(By.xpath(jsonArray.getJSONObject(8).getString("locator")))).click();
                      }catch(Exception e){
                         displayLog.append("message placing failed,looking for a fix \n"); 
                         driver.navigate().refresh();
@@ -189,7 +230,8 @@ public class Bot{
                     
                     //message_select    
                         try{
-                        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='styled__Wrapper-sc-4f1cbs-0 gTBVTO'])[last()]"))).click();
+                        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='styled__Wrapper-sc-4f1cbs-0 gTBVTO'])[last()]"))).click();
+                        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(jsonArray.getJSONObject(9).getString("locator")))).click();
                         System.out.println("message placed"); 
                         displayLog.append("message placed \n");
                         }catch(Exception e){
@@ -204,12 +246,16 @@ public class Bot{
                     
                     if(!priceLevel.equalsIgnoreCase("none")){   
                     //min,max,average
-                        minPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span[@class='styled__Amount-qyovge-7 cTVHAe'])[last()]"))).getText().substring(1);
-                        avPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span[@class='styled__Amount-qyovge-7 gQtpqC'])[last()]"))).getText().substring(1);
-                        maxPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span[@class='styled__Amount-qyovge-7 gSIIkh'])[last()]"))).getText().substring(1);
-                          
+                        //minPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span[@class='styled__Amount-qyovge-7 cTVHAe'])[last()]"))).getText().substring(1);
+                        minPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(jsonArray.getJSONObject(10).getString("locator")))).getText().substring(1);
+                        //avPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span[@class='styled__Amount-qyovge-7 gQtpqC'])[last()]"))).getText().substring(1);
+                        avPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(jsonArray.getJSONObject(11).getString("locator")))).getText().substring(1);
+                        //maxPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span[@class='styled__Amount-qyovge-7 gSIIkh'])[last()]"))).getText().substring(1);
+                        maxPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(jsonArray.getJSONObject(12).getString("locator")))).getText().substring(1);
+                        
                         //price_input
-                        WebElement inputAmount=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@class='styled__Wrapper-sc-1novt9v-2 fLTTlZ']/div/div/input)[last()]")));
+                        //WebElement inputAmount=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@class='styled__Wrapper-sc-1novt9v-2 fLTTlZ']/div/div/input)[last()]")));
+                        WebElement inputAmount=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(jsonArray.getJSONObject(13).getString("locator"))));
 
                             switch(priceLevel){
                                 case "Minimum":
@@ -233,7 +279,8 @@ public class Bot{
 //                     end of check price level
                         //start_bidding
                         try{
-                        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='ui-modal-content']/div[@class='ui-modal-body']/div/div[@class='sb-makeOffer__actions']/div/button[1])[last()]"))).click();
+                        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='ui-modal-content']/div[@class='ui-modal-body']/div/div[@class='sb-makeOffer__actions']/div/button[1])[last()]"))).click();
+                        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(jsonArray.getJSONObject(14).getString("locator")))).click();
                         }
                         catch(Exception e){
                         driver.navigate().refresh();
