@@ -285,12 +285,9 @@ public class clinkHome extends javax.swing.JFrame {
      //configs
      String priceLevel=configArray[0];
      int delay=Integer.parseInt(configArray[1]);
-     String bidOn=configArray[2];
+     Boolean refreshAfterBid=Boolean.parseBoolean(conf.readFile("rfresh.txt"));
    
-    
-     
-     
-     
+         
      displayLog.append("Signing in...\n");
      displayLog.append("Authenticating session...\n");
      
@@ -301,7 +298,7 @@ public class clinkHome extends javax.swing.JFrame {
        if(Bot.login(driver,email,password)==true){
            displayLog.append("login successful...\n");
            displayLog.append("bidding...\n");
-           Bot.bid(driver,delay, priceLevel,bidOn,filterArray, displayLog); 
+           Bot.bid(driver,delay, priceLevel,refreshAfterBid,filterArray, displayLog); 
            
        }else{
        displayLog.append("error, signing in, relaunch and enter the correct login details...\n");

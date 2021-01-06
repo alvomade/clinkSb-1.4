@@ -103,12 +103,12 @@ public class Bot{
     return isLoggedIn;
    }
    
-   public static void bid(WebDriver driver,int delay,String priceLevel,String bidOn,String[] filter, javax.swing.JTextArea displayLog) throws InterruptedException, IOException{
+   public static void bid(WebDriver driver,int delay,String priceLevel,Boolean refreshAfterBid,String[] filter, javax.swing.JTextArea displayLog) throws InterruptedException, IOException{
        int errorHeperer=0;
         int i=0;     
         JSONArray jsonArray = Bot.selectors();
         WebDriverWait wait=new WebDriverWait(driver,15);
-        
+        WebDriverWait waitx2=new WebDriverWait(driver,30);
        //first time refresh
         if(errorHeperer==0){
            errorHeperer++;
@@ -199,8 +199,9 @@ public class Bot{
                 //click start bidding button
                 try{
                    //start_bidding 
-                  //order.findElement(By.xpath("//button[contains(., 'Start bidding')]")).click();
-                  order.findElement(By.xpath(jsonArray.getJSONObject(7).getString("locator"))).click();
+                  wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(jsonArray.getJSONObject(7).getString("locator")))).click();
+                  //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='ui-collapse-item ui-collapse-item-active']/div[@class='ui-collapse-content ui-collapse-content-active']/div/div/div/div[2]/button
+//                  order.findElement(By.xpath(jsonArray.getJSONObject(7).getString("locator"))).click();
                 }
                 catch(NoSuchElementException e){
 //                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@aria-label='Close']")));
@@ -221,7 +222,7 @@ public class Bot{
                        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='styled__Field-sc-13g4w8f-1 ePCfsj'])[last()]"))).click();
                        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(jsonArray.getJSONObject(8).getString("locator")))).click();
                      }catch(Exception e){
-                        displayLog.append("message placing failed,looking for a fix \n"); 
+                        displayLog.append("message placing failed,looking for a fix... \n"); 
                         driver.navigate().refresh();
                         Config.errorFileWriter(e.toString());
                         Thread.sleep(delay*1000);
@@ -292,6 +293,22 @@ public class Bot{
                         System.out.println("Bidd title: "+order.findElement(By.className("orderA__name")).getText());
                         Thread.sleep(delay*1000);
                         
+                        
+                        //if its one bid per refresh
+                        if(refreshAfterBid){    
+                            try{
+                            List<WebElement>closeReads=waitx2.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='orderA__order orderA__order--read']/div[@class='orderA__order__wrapper']/div[2]/button[1]")));
+                            for(WebElement closeRead:closeReads){
+                                closeRead.click();
+                            }
+                            displayLog.append("refreshing..... "+"\n");
+                            }
+                            catch(Exception e){
+                            break;    
+                            }
+                            
+                            break;
+                        }
                
         }
         driver.navigate().refresh();
