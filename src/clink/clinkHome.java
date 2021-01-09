@@ -257,7 +257,7 @@ public class clinkHome extends javax.swing.JFrame {
     driver = new ChromeDriver(options);
     
     //get filter subjects
-    String filter=Config.readFile("sare_hizo.txt");
+    String filter=Config.readFile("filter.txt");
      String [] filterArray=filter.split(",");
      
      int i=0;
