@@ -5,7 +5,7 @@
  */
 package clink;
 
-import static com.sun.management.jmx.Trace.isSelected;
+//import static com.sun.management.jmx.Trace.isSelected;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
