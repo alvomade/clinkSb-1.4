@@ -5,7 +5,6 @@
  */
 package clink;
 
-import static com.sun.management.jmx.Trace.isSelected;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -18,7 +17,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.text.WordUtils;
 
 /**
@@ -82,15 +80,15 @@ public class Subjects extends javax.swing.JFrame {
                 
                 checkAll.setSelected(true);
                 checkEnglishLanguage.setSelected(true);
-           checkAfricanHistory.setSelected(true);
-           checkArtDesign.setSelected(true);
-           checkCreativeWriting.setSelected(true);
-           checkJurisprudence.setSelected(true);
-           checkModernHistory.setSelected(true);
-           checkPoetry.setSelected(true);
-           checkTheology.setSelected(true);
-           checkAmericanHistory.setSelected(true);
-           checkAncientHistory.setSelected(true);
+                checkAfricanHistory.setSelected(true);
+                checkArtDesign.setSelected(true);
+                checkCreativeWriting.setSelected(true);
+                checkJurisprudence.setSelected(true);
+                checkModernHistory.setSelected(true);
+                checkPoetry.setSelected(true);
+                checkTheology.setSelected(true);
+                checkAmericanHistory.setSelected(true);
+                checkAncientHistory.setSelected(true);
            checkArtHistory.setSelected(true);
            checkCriminalLaw.setSelected(true);
            checkLaw.setSelected(true);
