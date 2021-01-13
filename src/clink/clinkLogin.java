@@ -23,6 +23,7 @@ public class clinkLogin extends javax.swing.JFrame {
     String dbEmail = null;
     String dbExpiry = null;
     String dbKey = null;
+    Boolean activation=false;
     
     
     public clinkLogin() {
@@ -252,7 +253,7 @@ public class clinkLogin extends javax.swing.JFrame {
         String activationCode=Config.readFile("activationCode.txt");
         
                 try {
-                            URL url = new URL("http://sb.clink.co.ke/getExpiry.php?act="+activationCode);
+                            URL url = new URL("http://sb.clink.co.ke/getExpAndUser.php?act="+activationCode);
                             HttpURLConnection httpURLConnection=(HttpURLConnection)url.openConnection();
                             httpURLConnection.setRequestMethod("GET");
 
@@ -276,6 +277,7 @@ public class clinkLogin extends javax.swing.JFrame {
 
                             if(status==1){
                                 dbExpiry=jsonObject1.getString("exp");
+                                activation=Boolean.parseBoolean(jsonObject1.getString("activation"));
                             }else{
                                 JOptionPane.showMessageDialog(null, "Your account is not registered with clink");
                             }
@@ -292,30 +294,17 @@ public class clinkLogin extends javax.swing.JFrame {
 
                         int remaining = Activation.activationStatus(dbExpiry);
                         
-                        //Boolean compare = email.equals(dbEmail);
-                        Boolean compare =true;
                         
-                        if(compare ==true && remaining > 0) {
+                        if(activation) {
                             JOptionPane.showMessageDialog(null, "Subscription is active,Expiry on"+dbExpiry+". proceed...");
                             //new clinkHome(dbEmail, dbKey, dbExpiry,pass).setVisible(true);
                             this.dispose();
-                            new clinkHome(email,"1233",dbExpiry,pass).setVisible(true);
+                            new clinkHome(email,dbExpiry,pass).setVisible(true);
                             
-                        }else if(compare = true && remaining < 1) {
-                            JOptionPane.showMessageDialog(null, "Your Activation EXPIRED!");
+                        }else if(!activation) {
+                            JOptionPane.showMessageDialog(null, "Your Activation EXPIRED on "+dbExpiry);
                         }
-//                        else{
-//                            JOptionPane.showMessageDialog(null, "User Doesnt Exist! ");
-//                        }
-//  
-//
-//                } else {
-//                JOptionPane.showMessageDialog(null, "User Doesnt Exist! ");
-//                this.dispose();
-//                }
-//            } catch (SQLException ex) {
-//                JOptionPane.showMessageDialog(null, ex);
-//            }
+//                        
         }
     }//GEN-LAST:event_login_btnLoginActionPerformed
 
