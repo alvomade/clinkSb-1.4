@@ -1226,7 +1226,7 @@ public class Subjects extends javax.swing.JFrame {
         settings_btnBack.setBackground(new java.awt.Color(28, 39, 84));
         settings_btnBack.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         settings_btnBack.setForeground(new java.awt.Color(255, 255, 255));
-        settings_btnBack.setText("BACK");
+        settings_btnBack.setText("Back");
         settings_btnBack.setBorderPainted(false);
         settings_btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1237,7 +1237,7 @@ public class Subjects extends javax.swing.JFrame {
         subjects_btnSave.setBackground(new java.awt.Color(28, 39, 84));
         subjects_btnSave.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         subjects_btnSave.setForeground(new java.awt.Color(255, 255, 255));
-        subjects_btnSave.setText("SAVE");
+        subjects_btnSave.setText("Save");
         subjects_btnSave.setBorderPainted(false);
         subjects_btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -331,7 +331,7 @@ public class Bot{
 
                                 if (!list.contains(subject)) {
                                     //close
-                                    waitx2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(jsonArray.getJSONObject(16).getString("locator")))).click();                                    //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]
+                                    waitx2.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]"))).click();                                    //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]
                                 }
                             unwantedsZiko=false;
                             displayLog.append("-----------------------------------------------------------------------------"+"\n");
