@@ -109,6 +109,8 @@ public class Bot{
         JSONArray jsonArray = Bot.selectors();
         WebDriverWait wait=new WebDriverWait(driver,15);
         WebDriverWait waitx2=new WebDriverWait(driver,30);
+        List<String> list = Arrays.asList(filter);
+        Boolean unwantedsZiko=false;
        //first time refresh
         if(errorHeperer==0){
            errorHeperer++;
@@ -179,7 +181,6 @@ public class Bot{
                   }
                   
                   subject=subject.trim();
-                  List<String> list = Arrays.asList(filter);
                   
                   if(!list.contains(subject)){
                     //close
@@ -187,6 +188,7 @@ public class Bot{
                     wait.until(ExpectedConditions.elementToBeClickable(By.xpath(jsonArray.getJSONObject(6).getString("locator")))).click();
                     //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]
                     displayLog.append(subject+" is unwanted, looking for new orders... \n");
+                    unwantedsZiko=true;
                     continue;
                   }
                   
@@ -309,30 +311,40 @@ public class Bot{
                             
                             break;
                         }
+                        
                
         }
+                        //closing all unwanteds
+                         if(unwantedsZiko){
+                            displayLog.append("clearing unwanted subjects..... "+"\n");
+                            for (WebElement anOrder : orders) {
+                                String subjectPlusType = anOrder.findElement(By.className(jsonArray.getJSONObject(5).getString("locator"))).getText();
+                                String[] subjectPlusTypeArray = subjectPlusType.split(",");
+                                String subject;
+                                try {
+                                    subject = subjectPlusTypeArray[1];
+                                } catch (ArrayIndexOutOfBoundsException e) {
+                                    subject = "nothing";
+                                }
+
+                                subject = subject.trim();
+
+                                if (!list.contains(subject)) {
+                                    //close
+                                    waitx2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]"))).click();                                    //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]
+                                }
+                            unwantedsZiko=false;
+                            displayLog.append("-----------------------------------------------------------------------------"+"\n");
+                          }
+                         }
         driver.navigate().refresh();
         
         }
         
     
-   }
    
-   public static boolean retryingFindClick(WebDriver driver,String xpath) {
-     WebDriverWait wait=new WebDriverWait(driver,2);
-    boolean result = false;
-    int attempts = 0;
-    while(attempts < 4) {
-        try {
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath))).click();
-            result = true;
-            break;
-        } catch(StaleElementReferenceException e) {
-        }
-        attempts++;
-    }
-    return result;
-}
+   
+   }
    
    public static void exitBrowser(WebDriver driver){
        driver.close();
