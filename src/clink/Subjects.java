@@ -5,7 +5,6 @@
  */
 package clink;
 
-import static com.sun.management.jmx.Trace.isSelected;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -18,7 +17,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.text.WordUtils;
 
 /**
@@ -76,9 +74,962 @@ public class Subjects extends javax.swing.JFrame {
             
             List<String> list = Arrays.asList(filterArray);
             
+            System.out.println(list);
+            
             if(list.contains("All")){
+                
                 checkAll.setSelected(true);
+                checkEnglishLanguage.setSelected(true);
+                checkAfricanHistory.setSelected(true);
+                checkArtDesign.setSelected(true);
+                checkCreativeWriting.setSelected(true);
+                checkJurisprudence.setSelected(true);
+                checkModernHistory.setSelected(true);
+                checkPoetry.setSelected(true);
+                checkTheology.setSelected(true);
+                checkAmericanHistory.setSelected(true);
+                checkAncientHistory.setSelected(true);
+           checkArtHistory.setSelected(true);
+           checkCriminalLaw.setSelected(true);
+           checkLaw.setSelected(true);
+           checkFilm.setSelected(true);
+           checkMusic.setSelected(true);
+           checkRussianHistory.setSelected(true);
+           checkVisualArts.setSelected(true);
+           checkOther.setSelected(true);
+           checkAccounting.setSelected(true);
+           checkBlockchain.setSelected(true);
+           checkBusinessAnalysis.setSelected(true);
+           checkChildcare.setSelected(true);
+           checkDentistry.setSelected(true);
+           checkElectricalEngineering.setSelected(true);
+           checkHealthCare.setSelected(true);
+           checkInvestmentStrategies.setSelected(true);
+           checkMaterialsScienceEngineering.setSelected(true);
+           checkMoneyBanking.setSelected(true);
+           checkRealProperty.setSelected(true);
+           checkMarketing.setSelected(true);
+           checkAdvertising.setSelected(true);
+           checkBrandValue.setSelected(true);
+           checkBusinessManagement.setSelected(true);
+           checkCivilEngineering.setSelected(true);
+           checkEngineering.setSelected(true);
+           checkFluidMechanics.setSelected(true);
+           checkHospitality.setSelected(true);
+           checkLogistics.setSelected(true);
+           checkMechanicalEngineering.setSelected(true);
+           checkNegotiation.setSelected(true);
+           checkStrategyTechnology.setSelected(true);
+           checkSociology.setSelected(true);
+           checkSocialWork.setSelected(true);
+           checkCriminology.setSelected(true);
+           checkHumanRights.setSelected(true);
+           checkPsychology.setSelected(true);
+           checkCommunicationStudies.setSelected(true);
+           checkHumanGeography.setSelected(true);
+           checkAlgebra.setSelected(true);
+           checkAppliedMathematics.setSelected(true);
+           checkAstronomy.setSelected(true);
+           checkCellBiology.setSelected(true);
+           checkCombinatorics.setSelected(true);
+           checkComputerScience.setSelected(true);
+           checkDistributedComputing.setSelected(true);
+           checkEnvironmentalChemistry.setSelected(true);
+           checkGeneralBiology.setSelected(true);
+           checkGraphTheory.setSelected(true);
+           checkInorganicChemestry.setSelected(true);
+           checkMathematics.setSelected(true);
+           checkOperatingSystems.setSelected(true);
+           checkPhysics.setSelected(true);
+           checkSpaceSciences.setSelected(true);
+           checkTopology.setSelected(true);
+           checkAnalyticalChemistry.setSelected(true);
+           checkArtificialIntelligenece.setSelected(true);
+           checkBiology.setSelected(true);
+           checkCode.setSelected(true);
+           checkComputerGraphics.setSelected(true);
+           checkDataStructures.setSelected(true);
+           checkEcology.setSelected(true);
+           checkGameTheory.setSelected(true);
+           checkGeometry.setSelected(true);
+           checkInformationTheory.setSelected(true);
+           checkMathematicalPhysics.setSelected(true);
+           checkNutrition.setSelected(true);
+           checkPhysicalChemistry.setSelected(true);
+           checkQuantumComputing.setSelected(true);
+           checkTheoryComputation.setSelected(true);
+           checkHistory.setSelected(true);
+           checkArchitecture.setSelected(true);
+           checkAsianHistory.setSelected(true);
+           checkDance.setSelected(true);
+           checkHistoryCulture.setSelected(true);
+           checkLegalManagement.setSelected(true);
+           checkPerformingArts.setSelected(true);
+           checkTelevision.setSelected(true);
+           checkWorldHistory.setSelected(true);
+           checkAdministrativeLaw.setSelected(true);
+           checkAppliedArts.setSelected(true);
+           checkCivilLaw.setSelected(true);
+           checkLiterature.setSelected(true);
+           checkHistoryLiterature.setSelected(true);
+           checkLinguistics.setSelected(true);
+           checkPhylosophy.setSelected(true);
+           checkTheatre.setSelected(true);
+           checkWorldLiterature.setSelected(true);
+           checkNursing.setSelected(true);
+           checkAnalysisStructures.setSelected(true);
+           checkBuildingMaterialsTheory.setSelected(true);   
+           checkCapitalMarkets.setSelected(true);
+           checkClinicalPhysiology.setSelected(true);
+           checkEconometrics.setSelected(true);
+           checkEntrepreneurship.setSelected(true);
+           checkFoodAgribusiness.setSelected(true);
+           checkHumanResource.setSelected(true);
+           checkMacroeconomics.setSelected(true);
+           checkMedicineHealth.setSelected(true);
+           checkPharmacology.setSelected(true);
+           checkStructuralDesign.setSelected(true);
+           checkOperationsManagement.setSelected(true);
+           checkAudit.setSelected(true);
+           checkBusiness.setSelected(true);
+           checkChemicalEngineering.setSelected(true);
+            checkCryptocurrencies.setSelected(true);
+            checkEducationalTechnology.setSelected(true);
+            checkEnvironmentalSciences.setSelected(true);
+            checkHydrologyHydrolicSystems.setSelected(true);
+            checkManagementStudies.setSelected(true);
+            checkMicroeconomics.setSelected(true);
+            checkPhysicalEducation.setSelected(true);
+            checkBusinessEntertainment.setSelected(true);
+            checkPoliticalScience.setSelected(true);
+            checkArchaeology.setSelected(true);
+            checkEducation.setSelected(true);
+            checkEconomics.setSelected(true);
+            checkAnthropology.setSelected(true);
+            checkCulturalStudies.setSelected(true);
+            checkTourism.setSelected(true);
+            checkAnalysis.setSelected(true);
+            checkApproximationTheory.setSelected(true);
+            checkBiochemistry.setSelected(true);
+            checkChemistry.setSelected(true);
+            checkComputerCommunications.setSelected(true);
+            checkCryptography.setSelected(true);
+            checkEarthScience.setSelected(true);
+            checkGeology.setSelected(true);
+            checkImmunology.setSelected(true);
+            checkMathematicalLogic.setSelected(true);
+            checkNumericalAnalysis.setSelected(true);
+            checkOrganicChemistry.setSelected(true);
+            checkProgrammingLanguages.setSelected(true);
+            checkTheoreticalPhysics.setSelected(true);
+            checkAlgorithms.setSelected(true);
+            checkAppliedPhysics.setSelected(true);
+            checkAstrophysics.setSelected(true);
+            checkEvolutionaryBiology.setSelected(true);
+            checkComputerArchitecture.setSelected(true);
+            checkComputerSecurity.setSelected(true);
+            checkDynamicalSystems.setSelected(true);
+            checkGeneralChemistry.setSelected(true);
+            checkHumanComputerInteraction.setSelected(true);
+            checkLogicComputerScience.setSelected(true);
+            checkOperationsResearch.setSelected(true);
+            checkNumberTheory.setSelected(true);
+            checkStatistics.setSelected(true);
+            checkProbabilityTheory.setSelected(true);
+            checkZoology.setSelected(true);
             }
+            
+            if(list.contains(checkEnglishLanguage.getText().toString().trim())){
+               checkEnglishLanguage.setSelected(true);
+            }
+        
+            if(list.contains(checkAfricanHistory.getText().toString().trim())){
+               checkAfricanHistory.setSelected(true);
+            }
+        
+        if(list.contains(checkArtDesign.getText().toString().trim())){
+            checkArtDesign.setSelected(true);
+        }
+        
+        //Creative Writing
+        if(list.contains(checkCreativeWriting.getText().toString().trim())){
+           checkCreativeWriting.setSelected(true);
+        }
+        
+        //Jurisprudence
+        if(list.contains(checkJurisprudence.getText().toString().trim())){
+            checkJurisprudence.setSelected(true);
+        }
+        
+       //Modern History
+        if(list.contains(checkModernHistory.getText().toString().trim())){
+            checkModernHistory.setSelected(true);
+        }
+        
+        //Poetry
+        if(list.contains("Poetry")){
+            checkPoetry.setSelected(true);
+        }
+        
+        //Theology
+        if(list.contains(checkTheology.getText().toString().trim())){
+            checkTheology.setSelected(true);
+        }
+        
+        //American History
+        if(list.contains(checkAmericanHistory.getText().toString().trim())){
+            checkAmericanHistory.setSelected(true);
+        }
+        
+        //Ancient History
+        if(list.contains(checkAncientHistory.getText().toString().trim())){
+            checkAncientHistory.setSelected(true);
+        }
+        
+        //Art History
+        if(list.contains(checkArtHistory.getText().toString().trim())){
+            checkArtHistory.setSelected(true);
+        }
+        
+        //Criminal Law
+        if(list.contains(checkCriminalLaw.getText().toString().trim())){
+            checkCriminalLaw.setSelected(true);
+        }
+                
+        //Film
+        if(list.contains(checkFilm.getText().toString().trim())){
+            checkFilm.setSelected(true);
+        }
+        
+        //checkLaw
+        if(list.contains(checkLaw.getText().toString().trim())){
+            checkLaw.setSelected(true);
+        }
+        
+        //Music
+        if(list.contains(checkMusic.getText().toString().trim())){
+            checkMusic.setSelected(true);
+        }
+        
+        //Russian History
+        if(list.contains(checkRussianHistory.getText().toString().trim())){
+            checkRussianHistory.setSelected(true);
+        }
+        
+        //Visual Arts
+        if(list.contains(checkVisualArts.getText().toString().trim())){
+            checkVisualArts.setSelected(true);
+        }
+        
+        //Others
+        if(list.contains(checkOther.getText().toString().trim())){
+            checkOther.setSelected(true);
+        }
+        
+        //Accounting
+        if(list.contains(checkAccounting.getText().toString().trim())){
+            checkAccounting.setSelected(true);
+        }
+        
+        //Blockchain
+        if(list.contains(checkBlockchain.getText().toString().trim())){
+            checkBlockchain.setSelected(true);
+        }
+        
+        //BusinessAnalysis
+        if(list.contains(checkBusinessAnalysis.getText().toString().trim())){
+            checkBusinessAnalysis.setSelected(true);
+        }
+        
+        //Childcare
+        if(list.contains(checkChildcare.getText().toString().trim())){
+            checkChildcare.setSelected(true);
+        }
+        
+        //Dentistry
+        if(list.contains(checkDentistry.getText().toString().trim())){
+            checkDentistry.setSelected(true);
+        }
+        
+        //Electrical Engineering
+        if(list.contains(checkElectricalEngineering.getText().toString().trim())){
+            checkElectricalEngineering.setSelected(true);
+        }
+        
+        //Health Care
+        if(list.contains(checkHealthCare.getText().toString().trim())){
+            checkHealthCare.setSelected(true);
+        }
+        
+        //Investment Strategies
+        if(list.contains(checkInvestmentStrategies.getText().toString().trim())){
+            checkInvestmentStrategies.setSelected(true);
+        }   
+        
+        //Materials Science Engineering
+        if(list.contains(checkMaterialsScienceEngineering.getText().toString().trim())){
+            checkMaterialsScienceEngineering.setSelected(true);
+        }
+        
+        // Money Banking
+        if(list.contains(checkMoneyBanking.getText().toString().trim())){
+            checkMoneyBanking.setSelected(true);
+        }
+        
+        // Real Property
+        if(list.contains(checkRealProperty.getText().toString().trim())){
+            checkRealProperty.setSelected(true);
+        }
+        
+        // Marketing
+        if(list.contains(checkMarketing.getText().toString().trim())){
+            checkMarketing.setSelected(true);
+        }
+        
+        //Advertising
+        if(list.contains(checkAdvertising.getText().toString().trim())){
+            checkAdvertising.setSelected(true);
+        }
+        
+        //Brand value
+        if(list.contains(checkBrandValue.getText().toString().trim())){
+            checkBrandValue.setSelected(true);
+        }
+        
+        //Business Management
+        if(list.contains(checkBusinessManagement.getText().toString().trim())){
+            checkBusinessManagement.setSelected(true);
+        }
+        
+        // Civil Engineering
+        if(list.contains(checkCivilEngineering.getText().toString().trim())){
+            checkCivilEngineering.setSelected(true);
+        }
+        
+        // Digital Innovation Transformation
+        if(list.contains(checkDigitalInnovationTransformation.getText().toString().trim())){
+            checkDigitalInnovationTransformation.setSelected(true);
+        }
+        
+        // Engineering
+        if(list.contains(checkEngineering.getText().toString().trim())){
+            checkEngineering.setSelected(true);
+        }
+        
+        // Fluid Mechanics
+        if(list.contains(checkFluidMechanics.getText().toString().trim())){
+            checkFluidMechanics.setSelected(true);
+        }
+        
+        // Hospitality
+        if(list.contains(checkHospitality.getText().toString().trim())){
+            checkHospitality.setSelected(true);
+        }
+                
+        // Logistics
+        if(list.contains(checkLogistics.getText().toString().trim())){
+            checkLogistics.setSelected(true);
+        }
+        
+        // Mechanical Engineering
+        if(list.contains(checkMechanicalEngineering.getText().toString().trim())){
+            checkMechanicalEngineering.setSelected(true);
+        }
+        
+        // Negotiation
+        if(list.contains(checkNegotiation.getText().toString().trim())){
+            checkNegotiation.setSelected(true);
+        }
+        
+        // StrategyTechnology
+        if(list.contains(checkStrategyTechnology.getText().toString().trim())){
+            checkStrategyTechnology.setSelected(true);
+        }
+        
+        // Sociology
+        if(list.contains(checkSociology.getText().toString().trim())){
+            checkSociology.setSelected(true);
+        }
+        
+        // Social Work
+        if(list.contains(checkSocialWork.getText().toString().trim())){
+            checkSocialWork.setSelected(true);
+        }
+        
+        // Criminology
+        if(list.contains(checkCriminology.getText().toString().trim())){
+            checkCriminology.setSelected(true);
+        }
+        
+        // Human Rights
+        if(list.contains(checkHumanRights.getText().toString().trim())){
+            checkHumanRights.setSelected(true);
+        }
+        
+        // Phsycology
+        if(list.contains(checkPsychology.getText().toString().trim())){
+            checkPsychology.setSelected(true);
+        }
+        
+        // Communication Studies
+        if(list.contains(checkCommunicationStudies.getText().toString().trim())){
+            checkCommunicationStudies.setSelected(true);
+        }
+        
+        // Human Geography
+        if(list.contains(checkHumanGeography.getText().toString().trim())){
+            checkHumanGeography.setSelected(true);
+        }
+        
+        // Algebra
+        if(list.contains(checkAlgebra.getText().toString().trim())){
+            checkAlgebra.setSelected(true);
+        }
+        
+        // Applied Mathematics
+        if(list.contains(checkAppliedMathematics.getText().toString().trim())){
+            checkAppliedMathematics.setSelected(true);
+        }
+        
+        // Astronomy
+        if(list.contains(checkAstronomy.getText().toString().trim())){
+           checkAstronomy.setSelected(true);
+        }
+        
+        // Cell Biology
+        if(list.contains(checkCellBiology.getText().toString().trim())){
+            checkCellBiology.setSelected(true);
+        }
+        
+        // Combinatorics
+        if(list.contains(checkCombinatorics.getText().toString().trim())){
+            checkCombinatorics.setSelected(true);
+        }
+        
+        // Computer Science
+        if(list.contains(checkComputerScience.getText().toString().trim())){
+            checkComputerScience.setSelected(true);
+        }
+        
+        // Distributed Computing
+        if(list.contains(checkDistributedComputing.getText().toString().trim())){
+            checkDistributedComputing.setSelected(true);
+        }
+        
+        // Environmental Chemistry
+        if(list.contains(checkEnvironmentalChemistry.getText().toString().trim())){
+            checkEnvironmentalChemistry.setSelected(true);
+        }
+        
+        // General Biology
+        if(list.contains(checkGeneralBiology.getText().toString().trim())){
+            checkGeneralBiology.setSelected(true);
+        }
+        
+        // Graph Theory
+        if(list.contains(checkGraphTheory.getText().toString().trim())){
+            checkGraphTheory.setSelected(true);
+        }
+        
+        // Inorganic Chemistry
+        if(list.contains(checkInorganicChemestry.getText().toString().trim())){
+            checkInorganicChemestry.setSelected(true);
+        }
+        
+        // Mathematics
+        if(list.contains(checkMathematics.getText().toString().trim())){
+            checkMathematics.setSelected(true);
+        }
+        
+        // Operating Systmes
+        if(list.contains(checkOperatingSystems.getText().toString().trim())){
+            checkOperatingSystems.setSelected(true);
+        }
+        
+        // Physics
+        if(list.contains(checkPhysics.getText().toString().trim())){
+            checkPhysics.setSelected(true);
+        }
+        
+        // Space Sciences
+        if(list.contains(checkSpaceSciences.getText().toString().trim())){
+            checkSpaceSciences.setSelected(true);
+        }
+        
+        // Topology
+        if(list.contains(checkTopology.getText().toString().trim())){
+            checkTopology.setSelected(true);
+        }
+        
+        // Analytical Chemistry
+        if(list.contains(checkAnalyticalChemistry.getText().toString().trim())){
+            checkAnalyticalChemistry.setSelected(true);
+        }
+        
+        // Artificial Intelligence
+        if(list.contains(checkArtificialIntelligenece.getText().toString().trim())){
+            checkArtificialIntelligenece.setSelected(true);
+        }
+        
+        // Biology
+        if(list.contains(checkBiology.getText().toString().trim())){
+            checkBiology.setSelected(true);
+        }
+        
+        // Code
+        if(list.contains(checkCode.getText().toString().trim())){
+            checkCode.setSelected(true);
+        }
+        
+        // Computer Graphics
+        if(list.contains(checkComputerGraphics.getText().toString().trim())){
+            checkComputerGraphics.setSelected(true);
+        }
+        
+        // Data Structures
+        if(list.contains(checkDataStructures.getText().toString().trim())){
+            checkDataStructures.setSelected(true);
+        }
+        
+        // Ecology
+        if(list.contains(checkEcology.getText().toString().trim())){
+            checkEcology.setSelected(true);
+        }
+        
+        // Game Theory
+        if(list.contains(checkGameTheory.getText().toString().trim())){
+            checkGameTheory.setSelected(true);
+        }
+        
+        // Geometry
+        if(list.contains(checkGeometry.getText().toString().trim())){
+            checkGeometry.setSelected(true);
+        }
+        
+        // Information Theory
+        if(list.contains(checkInformationTheory.getText().toString().trim())){
+            checkInformationTheory.setSelected(true);
+        }
+        
+        // Mathematical Physics
+        if(list.contains(checkMathematicalPhysics.getText().toString().trim())){
+            checkMathematicalPhysics.setSelected(true);
+        }
+        
+        // Nutrition
+        if(list.contains(checkNutrition.getText().toString().trim())){
+            checkNutrition.setSelected(true);
+        }
+        
+        // Physical Chemistry
+        if(list.contains(checkPhysicalChemistry.getText().toString().trim())){
+            checkPhysicalChemistry.setSelected(true);
+        }
+        
+        // Quantum Computing
+        if(list.contains(checkQuantumComputing.getText().toString().trim())){
+            checkQuantumComputing.setSelected(true);
+        }
+        
+        // Theory Computation
+        if(list.contains(checkTheoryComputation.getText().toString().trim())){
+            checkTheoryComputation.setSelected(true);
+        }
+        
+        // History
+        if(list.contains(checkHistory.getText().toString().trim())){
+            checkHistory.setSelected(true);
+        }
+        
+        // Architecture
+        if(list.contains(checkArchitecture.getText().toString().trim())){
+            checkArchitecture.setSelected(true);
+        }
+        
+        // Asian History
+        if(list.contains(checkAsianHistory.getText().toString().trim())){
+            checkAsianHistory.setSelected(true);
+        }
+        
+        // Dance
+        if(list.contains(checkDance.getText().toString().trim())){
+            checkDance.setSelected(true);
+        }
+        
+        // History Culture
+        if(list.contains(checkHistoryCulture.getText().toString().trim())){
+            checkHistoryCulture.setSelected(true);
+        }
+        
+        // Legal Management
+        if(list.contains(checkLegalManagement.getText().toString().trim())){
+            checkLegalManagement.setSelected(true);
+        }
+        
+        // Performing Arts
+        if(list.contains(checkPerformingArts.getText().toString().trim())){
+            checkPerformingArts.setSelected(true);
+        }
+        
+        // Television
+        if(list.contains(checkTelevision.getText().toString().trim())){
+            checkTelevision.setSelected(true);
+        }
+        
+        // World History
+        if(list.contains(checkWorldHistory.getText().toString().trim())){
+            checkWorldHistory.setSelected(true);
+        }
+        
+        // Administrative Law
+        if(list.contains(checkAdministrativeLaw.getText().toString().trim())){
+            checkAdministrativeLaw.setSelected(true);
+        }
+        
+        // Applied Arts
+        if(list.contains(checkAppliedArts.getText().toString().trim())){
+           checkAppliedArts.setSelected(true);
+        }
+        
+        // Civil Law
+        if(list.contains(checkCivilLaw.getText().toString().trim())){
+            checkCivilLaw.setSelected(true);
+        }
+        
+        // Literature
+        if(list.contains(checkLiterature.getText().toString().trim())){
+            checkLiterature.setSelected(true);
+        }
+        
+        // History Literature
+        if(list.contains(checkHistoryLiterature.getText().toString().trim())){
+            checkHistoryLiterature.setSelected(true);
+        }
+        
+        // Linguistics
+        if(list.contains(checkLinguistics.getText().toString().trim())){
+            checkLinguistics.setSelected(true);
+        }
+        
+        // Phylosophy
+        if(list.contains(checkPhylosophy.getText().toString().trim())){
+            checkPhylosophy.setSelected(true);
+        }
+        
+        // Theatre
+        if(list.contains(checkTheatre.getText().toString().trim())){
+            checkTheatre.setSelected(true);
+        }
+        
+        
+        // World Literature
+        if(list.contains(checkWorldLiterature.getText().toString().trim())){
+           checkWorldLiterature.setSelected(true);
+        }
+        
+        // Nursing
+        if(list.contains(checkNursing.getText().toString().trim())){
+            checkNursing.setSelected(true);
+        }
+        
+        // Analysis Structures
+        if(list.contains(checkAnalysisStructures.getText().toString().trim())){
+            checkAnalysisStructures.setSelected(true);
+        }
+        
+        // Building Materials Theory
+        if(list.contains(checkBuildingMaterialsTheory.getText().toString().trim())){
+            checkBuildingMaterialsTheory.setSelected(true);
+        }
+        
+        // Capital Markets
+        if(list.contains(checkCapitalMarkets.getText().toString().trim())){
+            checkCapitalMarkets.setSelected(true);
+        }
+        
+        // Clinical Physiology
+        if(list.contains(checkClinicalPhysiology.getText().toString().trim())){
+            checkClinicalPhysiology.setSelected(true);
+        }
+        
+        // Econometrics
+        if(list.contains(checkEconometrics.getText().toString().trim())){
+            checkEconometrics.setSelected(true);
+        }
+        
+        // Entrepreneurship
+        if(list.contains(checkEntrepreneurship.getText().toString().trim())){
+            checkEntrepreneurship.setSelected(true);
+        }
+        
+        // Food Agribusiness
+        if(list.contains(checkFoodAgribusiness.getText().toString().trim())){
+            checkFoodAgribusiness.setSelected(true);
+        }
+        
+        // Human Resource
+        if(list.contains(checkHumanResource.getText().toString().trim())){
+            checkHumanResource.setSelected(true);
+        }
+        
+        // Macroeconomics
+        if(list.contains(checkMacroeconomics.getText().toString().trim())){
+            checkMacroeconomics.setSelected(true);
+        }
+        
+        // Medicine Health
+        if(list.contains(checkMedicineHealth.getText().toString().trim())){
+            checkMedicineHealth.setSelected(true);
+        }
+        
+        // Pharmacology
+        if(list.contains(checkPharmacology.getText().toString().trim())){
+            checkPharmacology.setSelected(true);
+        }
+        
+        // Structural design
+        if(list.contains(checkStructuralDesign.getText().toString().trim())){
+            checkStructuralDesign.setSelected(true);
+        }
+        
+        // Operations management
+        if(list.contains(checkOperationsManagement.getText().toString().trim())){
+            checkOperationsManagement.setSelected(true);
+        }
+        
+        // Audit
+        if(list.contains(checkAudit.getText().toString().trim())){
+            checkAudit.setSelected(true);
+        }
+        
+        // Business
+        if(list.contains(checkBusiness.getText().toString().trim())){
+            checkBusiness.setSelected(true);
+        }
+        
+        // Chemical Engineering
+        if(list.contains(checkChemicalEngineering.getText().toString().trim())){
+            checkChemicalEngineering.setSelected(true);
+        }
+        
+        // Cryptocurrencies
+        if(list.contains(checkCryptocurrencies.getText().toString().trim())){
+            checkCryptocurrencies.setSelected(true);
+        }
+        
+        // Educational Technology
+        if(list.contains(checkEducationalTechnology.getText().toString().trim())){
+            checkEducationalTechnology.setSelected(true);
+        }
+        
+        // Environmental sciences
+        if(list.contains(checkEnvironmentalSciences.getText().toString().trim())){
+            checkEnvironmentalSciences.setSelected(true);
+        }
+        
+        // Hydrology Hydrolic Systems
+        if(list.contains(checkHydrologyHydrolicSystems.getText().toString().trim())){
+            checkHydrologyHydrolicSystems.setSelected(true);
+        }
+        
+        // Management studies
+        if(list.contains(checkManagementStudies.getText().toString().trim())){
+            checkManagementStudies.setSelected(true);
+        }
+        
+        // Microeconomics
+        if(list.contains(checkMicroeconomics.getText().toString().trim())){
+            checkMicroeconomics.setSelected(true);
+        }
+        
+        //Physical Education
+        if(list.contains(checkPhysicalEducation.getText().toString().trim())){
+            checkPhysicalEducation.setSelected(true);
+        }
+        
+        // Business Entertainment
+        if(list.contains(checkBusinessEntertainment.getText().toString().trim())){
+            checkBusinessEntertainment.setSelected(true);
+        }
+        
+        // Political science
+        if(list.contains(checkPoliticalScience.getText().toString().trim())){
+            checkPoliticalScience.setSelected(true);
+        }
+        
+        // Archaeology
+        if(list.contains(checkArchaeology.getText().toString().trim())){
+            checkArchaeology.setSelected(true);
+        }
+        
+        // Education
+        if(list.contains(checkEducation.getText().toString().trim())){
+            checkEducation.setSelected(true);
+        }
+        
+        // Economics
+        if(list.contains(checkEconomics.getText().toString().trim())){
+            checkEconomics.setSelected(true);
+        }
+        
+        // Anthropology
+        if(list.contains(checkAnthropology.getText().toString().trim())){
+            checkAnthropology.setSelected(true);
+        }
+        
+        // Cultural studies
+        if(list.contains(checkCulturalStudies.getText().toString().trim())){
+            checkCulturalStudies.setSelected(true);
+        }
+        // Tourism
+        if(list.contains(checkTourism.getText().toString().trim())){
+            checkTourism.setSelected(true);
+        }
+        
+        // Analysis
+        if(list.contains(checkAnalysis.getText().toString().trim())){
+            checkAnalysis.setSelected(true);
+        }
+        
+        // Approximation theory
+        if(list.contains(checkApproximationTheory.getText().toString().trim())){
+            checkApproximationTheory.setSelected(true);
+        }
+        
+        // Biochemistry
+        if(list.contains(checkBiochemistry.getText().toString().trim())){
+            checkBiochemistry.setSelected(true);
+        }
+        
+        // Chemistry
+        if(list.contains(checkChemistry.getText().toString().trim())){
+            checkChemistry.setSelected(true);
+        }
+        
+        // Computer communications
+        if(list.contains(checkComputerCommunications.getText().toString().trim())){
+            checkComputerCommunications.setSelected(true);
+        }
+        
+        // Cryptography
+        if(list.contains(checkCryptography.getText().toString().trim())){
+            checkCryptography.setSelected(true);
+        }
+        
+        // Earth Science
+        if(list.contains(checkEarthScience.getText().toString().trim())){
+            checkEarthScience.setSelected(true);
+        }
+        
+        // Geology
+        if(list.contains(checkGeology.getText().toString().trim())){
+            checkGeology.setSelected(true);
+        }
+        
+        // Immunology
+        if(list.contains(checkImmunology.getText().toString().trim())){
+            checkImmunology.setSelected(true);
+        }
+        
+        // Mathematical logic
+        if(list.contains(checkMathematicalLogic.getText().toString().trim())){
+            checkMathematicalLogic.setSelected(true);
+        }
+        
+        // Numerical analysis
+        if(list.contains(checkNumericalAnalysis.getText().toString().trim())){
+            checkNumericalAnalysis.setSelected(true);
+        }
+        
+        // Organic chemistry
+        if(list.contains(checkOrganicChemistry.getText().toString().trim())){
+            checkOrganicChemistry.setSelected(true);
+        }
+        
+        // Programming Languages
+        if(list.contains(checkProgrammingLanguages.getText().toString().trim())){
+            checkProgrammingLanguages.setSelected(true);
+        }
+        
+        // Theoretical physics
+        if(list.contains(checkTheoreticalPhysics.getText().toString().trim())){
+            checkTheoreticalPhysics.setSelected(true);
+        }
+        
+        // Algorithms
+        if(list.contains(checkAlgorithms.getText().toString().trim())){
+            checkAlgorithms.setSelected(true);
+        }
+        
+        // Applied Physics
+        if(list.contains(checkAppliedPhysics.getText().toString().trim())){
+            checkAppliedPhysics.setSelected(true);
+        }
+        
+        // Astrophysics
+        if(list.contains(checkAstrophysics.getText().toString().trim())){
+            checkAstrophysics.setSelected(true);
+        }
+        
+        // Evolutionary Biology
+        if(list.contains(checkEvolutionaryBiology.getText().toString().trim())){
+            checkEvolutionaryBiology.setSelected(true);
+        }
+        
+        // Computer Architecture
+        if(list.contains(checkComputerArchitecture.getText().toString().trim())){
+            checkComputerArchitecture.setSelected(true);
+        }
+        
+        // Computer security
+        if(list.contains(checkComputerSecurity.getText().toString().trim())){
+            checkComputerSecurity.setSelected(true);
+        }
+        
+        // Dynamical systems
+        if(list.contains(checkGeneralChemistry.getText().toString().trim())){
+            checkGeneralChemistry.setSelected(true);
+        }
+        
+        // General chemistry
+        if(list.contains(checkGeneralChemistry.getText().toString().trim())){
+            checkGeneralChemistry.setSelected(true);
+        }
+        
+        // Human Computer Interaction
+        if(list.contains(checkHumanComputerInteraction.getText().toString().trim())){
+            checkHumanComputerInteraction.setSelected(true);
+        }
+        
+        // Logic in computer science
+        if(list.contains(checkLogicComputerScience.getText().toString().trim())){
+            checkLogicComputerScience.setSelected(true);
+        }
+        
+        // Operations research
+        if(list.contains(checkOperationsResearch.getText().toString().trim())){
+            checkOperationsResearch.setSelected(true);
+        }
+        
+        // Number Theory
+        if(list.contains(checkNumberTheory.getText().toString().trim())){
+            checkNumberTheory.setSelected(true);
+        }
+        
+        // Statistics
+        if(list.contains(checkStatistics.getText().toString().trim())){
+           checkStatistics.setSelected(true);
+        }
+        
+        // Probability theory
+        if(list.contains(checkProbabilityTheory.getText().toString().trim())){
+            checkProbabilityTheory.setSelected(true);
+        }
+        
+        // Zoology
+        if(list.contains(checkZoology.getText().toString().trim())){
+            checkZoology.setSelected(true);
+        }
                     
             i++;
             
@@ -91,7 +1042,7 @@ public class Subjects extends javax.swing.JFrame {
      * regenerated by the Form Editor.
      */
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
@@ -1547,15 +2498,20 @@ public class Subjects extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
-    private void settings_btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settings_btnBackActionPerformed
+    private void settings_btnBackActionPerformed(java.awt.event.ActionEvent evt) {                                                 
 //        new clinkS().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_settings_btnBackActionPerformed
+    }                                                
     private String getSubjects(){
         List<String> subjects = new ArrayList<String>();
         String subjectStr = "";
+        
+        //All
+        if(checkAll.isSelected() == true){
+            subjects.add(checkAll.getText().toString().trim());
+        }
         
         if(checkEnglishLanguage.isSelected() == true){
             subjects.add(checkEnglishLanguage.getText().toString().trim());
@@ -2355,7 +3311,7 @@ public class Subjects extends javax.swing.JFrame {
         if (subjects.size() > 0) { 
             StringBuilder sb = new StringBuilder(); 
             for (String s : subjects) { 
-                sb.append(s).append(", "); 
+                sb.append(s).append(","); 
             } 
             subjectStr = sb.deleteCharAt(sb.length() - 1).toString(); 
         }else{
@@ -2364,7 +3320,7 @@ public class Subjects extends javax.swing.JFrame {
         
         return subjectStr;
     }
-    private void subjects_btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjects_btnSaveActionPerformed
+    private void subjects_btnSaveActionPerformed(java.awt.event.ActionEvent evt) {                                                 
          String acceptedSubjects = getSubjects();
         
         try { 
@@ -2379,13 +3335,13 @@ public class Subjects extends javax.swing.JFrame {
                 Logger.getLogger(clinkSettings.class.getName()).log(Level.SEVERE, null, ex);
             }
        
-    }//GEN-LAST:event_subjects_btnSaveActionPerformed
+    }                                                
 
-    private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
+    private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {                                     
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnExitMouseClicked
+    }                                    
 
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {                                        
         int result = JOptionPane.showConfirmDialog(null, "Do you want to Exit ?", "Exit Confirmation : ",
             JOptionPane.YES_NO_OPTION);
 
@@ -2395,32 +3351,32 @@ public class Subjects extends javax.swing.JFrame {
         } else if (result == JOptionPane.NO_OPTION) {
             setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         }
-    }//GEN-LAST:event_btnExitActionPerformed
+    }                                       
 
-    private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
+    private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {                                     
          int x = evt.getXOnScreen()-this.x;
         int y = evt.getYOnScreen()-this.y;
         this.setLocation(x,y); 
-    }//GEN-LAST:event_jPanel2MouseDragged
+    }                                    
 
-    private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
+    private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {                                     
         x = evt.getX();
         y = evt.getY();
-    }//GEN-LAST:event_jPanel2MousePressed
+    }                                    
 
-    private void checkAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAllActionPerformed
+    private void checkAllActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-    }//GEN-LAST:event_checkAllActionPerformed
+    }                                        
 
-    private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
+    private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {                                     
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel3MouseDragged
+    }                                    
 
-    private void jPanel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MousePressed
+    private void jPanel3MousePressed(java.awt.event.MouseEvent evt) {                                     
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel3MousePressed
+    }                                    
 
-    private void checkAllItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkAllItemStateChanged
+    private void checkAllItemStateChanged(java.awt.event.ItemEvent evt) {                                          
         if(checkAll.isSelected() == true){
            checkEnglishLanguage.setSelected(false);
            checkAfricanHistory.setSelected(false);
@@ -2740,6 +3696,8 @@ public class Subjects extends javax.swing.JFrame {
             checkProbabilityTheory.setSelected(true);
             checkZoology.setSelected(true);
         }
+        
+        
         
         //English Language
         if(checkEnglishLanguage.isSelected() == false){
@@ -3858,7 +4816,7 @@ public class Subjects extends javax.swing.JFrame {
        
         
         
-    }//GEN-LAST:event_checkAllItemStateChanged
+    }                                         
 
     /**
      * @param args the command line arguments
@@ -3895,7 +4853,7 @@ public class Subjects extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JButton btnExit;
     private javax.swing.JCheckBox checkAccounting;
     private javax.swing.JCheckBox checkAdministrativeLaw;
@@ -4063,5 +5021,5 @@ public class Subjects extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton settings_btnBack;
     private javax.swing.JButton subjects_btnSave;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }
