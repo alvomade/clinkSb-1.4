@@ -68,16 +68,13 @@ public class Subjects extends javax.swing.JFrame {
         
         String [] filterArray=filter.split(",");
      
-        int i=0;
-        while(i<filterArray.length){
-            filterArray[i]=WordUtils.capitalizeFully(filterArray[i]);
+        if(filterArray.length > 0){
             
             List<String> list = Arrays.asList(filterArray);
             
-            System.out.println(list);
+            //System.out.println(list);
             
             if(list.contains("All")){
-                
                 checkAll.setSelected(true);
                 checkEnglishLanguage.setSelected(true);
                 checkAfricanHistory.setSelected(true);
@@ -1030,8 +1027,6 @@ public class Subjects extends javax.swing.JFrame {
         if(list.contains(checkZoology.getText().toString().trim())){
             checkZoology.setSelected(true);
         }
-                    
-            i++;
             
         }
     }
