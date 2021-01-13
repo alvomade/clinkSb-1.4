@@ -98,12 +98,12 @@ public class clinkLogin extends javax.swing.JFrame {
         jLabel3.setBackground(new java.awt.Color(244, 244, 244));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(244, 244, 244));
-        jLabel3.setText("LOGIN");
+        jLabel3.setText("Login");
 
         login_btnSettings.setBackground(new java.awt.Color(28, 39, 84));
         login_btnSettings.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         login_btnSettings.setForeground(new java.awt.Color(255, 255, 255));
-        login_btnSettings.setText("SETTINGS");
+        login_btnSettings.setText("Settings");
         login_btnSettings.setBorder(null);
         login_btnSettings.setBorderPainted(false);
         login_btnSettings.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +133,7 @@ public class clinkLogin extends javax.swing.JFrame {
         login_btnLogin.setBackground(new java.awt.Color(28, 39, 84));
         login_btnLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         login_btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        login_btnLogin.setText("LAUNCH BOT");
+        login_btnLogin.setText("Launch bot");
         login_btnLogin.setBorder(null);
         login_btnLogin.setBorderPainted(false);
         login_btnLogin.addActionListener(new java.awt.event.ActionListener() {

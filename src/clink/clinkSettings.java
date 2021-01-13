@@ -69,7 +69,7 @@ public class clinkSettings extends javax.swing.JFrame {
               settings_activationCode.setText(config);
               
               if(config != null){
-                 settings_btnActivate.setText("UPDATE");
+                 settings_btnActivate.setText("Update");
               }
             }   
         } catch (FileNotFoundException ex) {
@@ -128,7 +128,7 @@ public class clinkSettings extends javax.swing.JFrame {
         checkRefresh = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Activation code");
 
@@ -151,9 +151,9 @@ public class clinkSettings extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(478, 300));
 
         settings_btnBack.setBackground(new java.awt.Color(28, 39, 84));
-        settings_btnBack.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        settings_btnBack.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         settings_btnBack.setForeground(new java.awt.Color(255, 255, 255));
-        settings_btnBack.setText("BACK");
+        settings_btnBack.setText("Back");
         settings_btnBack.setBorderPainted(false);
         settings_btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,7 +161,7 @@ public class clinkSettings extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Activation code");
 
@@ -204,7 +204,7 @@ public class clinkSettings extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Price Level");
 
@@ -214,23 +214,23 @@ public class clinkSettings extends javax.swing.JFrame {
         settings_priceLevel.setBorder(null);
 
         settings_timeLimit.setBackground(new java.awt.Color(19, 28, 59));
-        settings_timeLimit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        settings_timeLimit.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         settings_timeLimit.setForeground(new java.awt.Color(0, 204, 0));
         settings_timeLimit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(28, 0, 213)));
         settings_timeLimit.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Refresh after:");
+        jLabel3.setText("Refresh after(sec):");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Subjects");
+        jLabel5.setText("Subject filter");
 
         btnFilter.setBackground(new java.awt.Color(28, 39, 84));
-        btnFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnFilter.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         btnFilter.setForeground(new java.awt.Color(255, 255, 255));
-        btnFilter.setText("FILTER");
+        btnFilter.setText("Choose bid subjects");
         btnFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFilterActionPerformed(evt);
@@ -238,13 +238,13 @@ public class clinkSettings extends javax.swing.JFrame {
         });
 
         checkRefresh.setBackground(new java.awt.Color(19, 28, 59));
-        checkRefresh.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        checkRefresh.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         checkRefresh.setForeground(new java.awt.Color(255, 255, 255));
         checkRefresh.setText("Refresh after every bid");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Bids/refresh");
+        jLabel6.setText("Bid/refresh");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
