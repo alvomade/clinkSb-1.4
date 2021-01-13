@@ -299,7 +299,7 @@ public class Bot{
                         //if its one bid per refresh
                         if(refreshAfterBid){    
                             try{
-                            List<WebElement>closeReads=waitx2.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='orderA__order orderA__order--read']/div[@class='orderA__order__wrapper']/div[2]/button[1]")));
+                            List<WebElement>closeReads=waitx2.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(jsonArray.getJSONObject(16).getString("locator"))));
                             for(WebElement closeRead:closeReads){
                                 closeRead.click();
                             }
@@ -331,7 +331,7 @@ public class Bot{
 
                                 if (!list.contains(subject)) {
                                     //close
-                                    waitx2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]"))).click();                                    //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]
+                                    waitx2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(jsonArray.getJSONObject(16).getString("locator")))).click();                                    //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]
                                 }
                             unwantedsZiko=false;
                             displayLog.append("-----------------------------------------------------------------------------"+"\n");
