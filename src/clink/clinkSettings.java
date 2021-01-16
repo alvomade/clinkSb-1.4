@@ -71,7 +71,7 @@ public class clinkSettings extends javax.swing.JFrame {
               settings_activationCode.setText(config);
               
               if(config != null){
-                 settings_btnActivate.setText("UPDATE");
+                 settings_btnActivate.setText("Update");
               }
             }   
         } catch (FileNotFoundException ex) {

@@ -110,7 +110,7 @@ public class clinkHome extends javax.swing.JFrame {
         home_btnLaunch.setBackground(new java.awt.Color(0, 204, 0));
         home_btnLaunch.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         home_btnLaunch.setForeground(new java.awt.Color(255, 255, 255));
-        home_btnLaunch.setText("START");
+        home_btnLaunch.setText("Start");
         home_btnLaunch.setBorderPainted(false);
         home_btnLaunch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -126,7 +126,7 @@ public class clinkHome extends javax.swing.JFrame {
         home_btnExit.setBackground(new java.awt.Color(28, 39, 84));
         home_btnExit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         home_btnExit.setForeground(new java.awt.Color(255, 255, 255));
-        home_btnExit.setText("EXIT");
+        home_btnExit.setText("Exit");
         home_btnExit.setBorderPainted(false);
         home_btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
