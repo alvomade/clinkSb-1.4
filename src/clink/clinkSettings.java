@@ -121,7 +121,7 @@ public class clinkSettings extends javax.swing.JFrame {
         settings_activationCode = new javax.swing.JTextField();
         settings_btnActivate = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        settings_priceLevel = new javax.swing.JComboBox<String>();
+        settings_priceLevel = new javax.swing.JComboBox<>();
         settings_timeLimit = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -203,8 +203,7 @@ public class clinkSettings extends javax.swing.JFrame {
 
         settings_priceLevel.setBackground(new java.awt.Color(19, 28, 59));
         settings_priceLevel.setForeground(new java.awt.Color(244, 244, 244));
-        settings_priceLevel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Minimum", "Average", "Maximum" }));
-        settings_priceLevel.setBorder(null);
+        settings_priceLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Minimum", "Average", "Maximum" }));
 
         settings_timeLimit.setBackground(new java.awt.Color(19, 28, 59));
         settings_timeLimit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -271,7 +270,7 @@ public class clinkSettings extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(244, 244, 244));
-        jLabel7.setText("Clink v1.4 - Settings");
+        jLabel7.setText("Clink studybay bot v2.0 - settings");
 
         btnExit2.setBackground(new java.awt.Color(28, 39, 84));
         btnExit2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -297,7 +296,7 @@ public class clinkSettings extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnExit2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -308,7 +307,7 @@ public class clinkSettings extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(btnExit1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnExit2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -372,7 +371,7 @@ public class clinkSettings extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 29, Short.MAX_VALUE)
+                    .addComponent(btnFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(settings_activationCode, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
@@ -393,7 +392,7 @@ public class clinkSettings extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 334, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

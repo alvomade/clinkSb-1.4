@@ -189,15 +189,17 @@ public class Bot{
                     //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__meta']/div[@class='orderA__actions']/button[contains(.,'Hide')]"))).click();
                     wait.until(ExpectedConditions.elementToBeClickable(By.xpath(jsonArray.getJSONObject(6).getString("locator")))).click();
                     //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]
-                    displayLog.append(subject+" is unwanted, looking for new orders... \n");
+                    displayLog.append("["+subject+"]"+" is unwanted, looking for new orders... \n");
                     unwantedsZiko=true;
                     continue;
+                  }else{
+                      displayLog.append("Subject "+"["+subject+"]"+"\n");
                   }
                   
               
               }
                 System.out.println("its wanted");
-                displayLog.append("subject is accepted \n");
+                
                 // end of check for unwanted orders
 
                 //click start bidding button

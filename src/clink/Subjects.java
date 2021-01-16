@@ -2458,7 +2458,7 @@ public class Subjects extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(244, 244, 244));
-        jLabel4.setText("Clink v1.4 - Filter Subject");
+        jLabel4.setText("Clink studybay bot v2.0 - Select subjects");
 
         btnExit2.setBackground(new java.awt.Color(28, 39, 84));
         btnExit2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -2484,7 +2484,7 @@ public class Subjects extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnExit2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2526,7 +2526,7 @@ public class Subjects extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(subjects_btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(settings_btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -4923,12 +4923,6 @@ public class Subjects extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit1;
     private javax.swing.JButton btnExit2;
-    private javax.swing.JButton btnExit21;
-    private javax.swing.JButton btnExit22;
-    private javax.swing.JButton btnExit23;
-    private javax.swing.JButton btnExit24;
-    private javax.swing.JButton btnExit25;
-    private javax.swing.JButton btnExit26;
     private javax.swing.JCheckBox checkAccounting;
     private javax.swing.JCheckBox checkAdministrativeLaw;
     private javax.swing.JCheckBox checkAdvertising;
@@ -5089,13 +5083,7 @@ public class Subjects extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkWorldHistory;
     private javax.swing.JCheckBox checkWorldLiterature;
     private javax.swing.JCheckBox checkZoology;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
