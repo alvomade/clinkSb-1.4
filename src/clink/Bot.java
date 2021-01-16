@@ -126,10 +126,12 @@ public class Bot{
          driver.manage().timeouts().implicitlyWait(delay, TimeUnit.SECONDS);
          //order_list 
          //orders=driver.findElements(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium'] "));
+         try{
          orders=driver.findElements(By.xpath(jsonArray.getJSONObject(3).getString("locator")));
+         }catch(Exception e){}
         }
         
-        System.out.println("found "+orders.size()+" orders");
+        System.out.println("found "+orders.size()+" ordersz");
         displayLog.append("found "+orders.size()+" order(s) \n");
         displayLog.append("-----------------------------------------------------------------------------"+"\n");
         
@@ -337,8 +339,8 @@ public class Bot{
                             displayLog.append("-----------------------------------------------------------------------------"+"\n");
                           }
                          }
+                         
         driver.navigate().refresh();
-        
         }
         
     
