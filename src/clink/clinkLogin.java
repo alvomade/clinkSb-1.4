@@ -1,6 +1,7 @@
 
 package clink;
 
+import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -13,7 +14,9 @@ import javax.swing.JOptionPane;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -23,7 +26,8 @@ public class clinkLogin extends javax.swing.JFrame {
     String dbEmail = null;
     String dbExpiry = null;
     String dbKey = null;
-    Boolean activation=false;
+    private int x;
+    private int y;
     
     
     public clinkLogin() {
@@ -63,7 +67,7 @@ public class clinkLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
-        jPanel1 = new javax.swing.JPanel();
+        main_panel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         login_btnSettings = new javax.swing.JButton();
@@ -71,7 +75,10 @@ public class clinkLogin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         login_inputPassword = new javax.swing.JPasswordField();
         login_btnLogin = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         btnExit = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        btnExit1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -87,9 +94,24 @@ public class clinkLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 255));
         setForeground(new java.awt.Color(255, 0, 0));
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                formMouseDragged(evt);
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
-        jPanel1.setBackground(new java.awt.Color(19, 28, 59));
-        jPanel1.setForeground(new java.awt.Color(19, 28, 59));
+        main_panel.setBackground(new java.awt.Color(19, 28, 59));
+        main_panel.setForeground(new java.awt.Color(19, 28, 59));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(244, 244, 244));
@@ -98,12 +120,12 @@ public class clinkLogin extends javax.swing.JFrame {
         jLabel3.setBackground(new java.awt.Color(244, 244, 244));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(244, 244, 244));
-        jLabel3.setText("Login");
+        jLabel3.setText("LOGIN");
 
         login_btnSettings.setBackground(new java.awt.Color(28, 39, 84));
         login_btnSettings.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         login_btnSettings.setForeground(new java.awt.Color(255, 255, 255));
-        login_btnSettings.setText("Settings");
+        login_btnSettings.setText("SETTINGS");
         login_btnSettings.setBorder(null);
         login_btnSettings.setBorderPainted(false);
         login_btnSettings.addActionListener(new java.awt.event.ActionListener() {
@@ -133,12 +155,25 @@ public class clinkLogin extends javax.swing.JFrame {
         login_btnLogin.setBackground(new java.awt.Color(28, 39, 84));
         login_btnLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         login_btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        login_btnLogin.setText("Launch bot");
+        login_btnLogin.setText("LAUNCH BOT");
         login_btnLogin.setBorder(null);
         login_btnLogin.setBorderPainted(false);
         login_btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 login_btnLoginActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(28, 39, 84));
+        jPanel2.setToolTipText("[19,28,59]");
+        jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel2MouseDragged(evt);
+            }
+        });
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel2MousePressed(evt);
             }
         });
 
@@ -159,13 +194,61 @@ public class clinkLogin extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(119, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(244, 244, 244));
+        jLabel4.setText("Clink v1.4");
+
+        btnExit1.setBackground(new java.awt.Color(28, 39, 84));
+        btnExit1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnExit1.setForeground(new java.awt.Color(255, 255, 255));
+        btnExit1.setText("---");
+        btnExit1.setBorder(null);
+        btnExit1.setBorderPainted(false);
+        btnExit1.setFocusPainted(false);
+        btnExit1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnExit1MouseClicked(evt);
+            }
+        });
+        btnExit1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExit1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnExit1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addContainerGap(8, Short.MAX_VALUE))
+            .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnExit1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout main_panelLayout = new javax.swing.GroupLayout(main_panel);
+        main_panel.setLayout(main_panelLayout);
+        main_panelLayout.setHorizontalGroup(
+            main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(main_panelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(215, 215, 215))
+            .addGroup(main_panelLayout.createSequentialGroup()
+                .addContainerGap(124, Short.MAX_VALUE)
+                .addGroup(main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(login_inputPassword)
                     .addComponent(login_inputEmail)
                     .addComponent(jLabel1)
@@ -173,25 +256,15 @@ public class clinkLogin extends javax.swing.JFrame {
                     .addComponent(login_btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(login_btnSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(112, 112, 112))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(216, 216, 216)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)))
+        main_panelLayout.setVerticalGroup(
+            main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(main_panelLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(login_inputEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -199,7 +272,7 @@ public class clinkLogin extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(login_inputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(login_btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(login_btnSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -210,11 +283,11 @@ public class clinkLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(main_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(main_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -253,7 +326,7 @@ public class clinkLogin extends javax.swing.JFrame {
         String activationCode=Config.readFile("activationCode.txt");
         
                 try {
-                            URL url = new URL("http://sb.clink.co.ke/getExpAndUser.php?act="+activationCode);
+                            URL url = new URL("http://sb.clink.co.ke/getExpiry.php?act="+activationCode);
                             HttpURLConnection httpURLConnection=(HttpURLConnection)url.openConnection();
                             httpURLConnection.setRequestMethod("GET");
 
@@ -277,7 +350,6 @@ public class clinkLogin extends javax.swing.JFrame {
 
                             if(status==1){
                                 dbExpiry=jsonObject1.getString("exp");
-                                activation=Boolean.parseBoolean(jsonObject1.getString("activation"));
                             }else{
                                 JOptionPane.showMessageDialog(null, "Your account is not registered with clink");
                             }
@@ -294,17 +366,30 @@ public class clinkLogin extends javax.swing.JFrame {
 
                         int remaining = Activation.activationStatus(dbExpiry);
                         
+                        //Boolean compare = email.equals(dbEmail);
+                        Boolean compare =true;
                         
-                        if(activation) {
+                        if(compare ==true && remaining > 0) {
                             JOptionPane.showMessageDialog(null, "Subscription is active,Expiry on"+dbExpiry+". proceed...");
                             //new clinkHome(dbEmail, dbKey, dbExpiry,pass).setVisible(true);
                             this.dispose();
-                            new clinkHome(email,dbExpiry,pass).setVisible(true);
+                            new clinkHome(email,"1233",dbExpiry,pass).setVisible(true);
                             
-                        }else if(!activation) {
-                            JOptionPane.showMessageDialog(null, "Your Activation EXPIRED on "+dbExpiry);
+                        }else if(compare = true && remaining < 1) {
+                            JOptionPane.showMessageDialog(null, "Your Activation EXPIRED!");
                         }
-//                        
+//                        else{
+//                            JOptionPane.showMessageDialog(null, "User Doesnt Exist! ");
+//                        }
+//  
+//
+//                } else {
+//                JOptionPane.showMessageDialog(null, "User Doesnt Exist! ");
+//                this.dispose();
+//                }
+//            } catch (SQLException ex) {
+//                JOptionPane.showMessageDialog(null, ex);
+//            }
         }
     }//GEN-LAST:event_login_btnLoginActionPerformed
 
@@ -332,6 +417,41 @@ public class clinkLogin extends javax.swing.JFrame {
     private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnExitMouseClicked
+
+    private void btnExit1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExit1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExit1MouseClicked
+
+    private void btnExit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExit1ActionPerformed
+        this.setState(clinkLogin.ICONIFIED);
+    }//GEN-LAST:event_btnExit1ActionPerformed
+
+    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
+        int x = evt.getXOnScreen()-this.x;
+        int y = evt.getYOnScreen()-this.y;
+        this.setLocation(x,y);
+    }//GEN-LAST:event_formMouseDragged
+
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        x = evt.getX();
+        y = evt.getY();
+    }//GEN-LAST:event_formMousePressed
+
+    private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
+        x = evt.getX();
+        y = evt.getY();
+    }//GEN-LAST:event_jPanel2MousePressed
+
+    private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
+        int x = evt.getXOnScreen()-this.x;
+        int y = evt.getYOnScreen()-this.y;
+        this.setLocation(x,y);
+    }//GEN-LAST:event_jPanel2MouseDragged
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        ImageIcon icon = new ImageIcon("icon.png");
+        setIconImage(icon.getImage());
+    }//GEN-LAST:event_formWindowActivated
 
      public static boolean isValid(String email) 
     { 
@@ -383,14 +503,17 @@ public class clinkLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnExit1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton login_btnLogin;
     private javax.swing.JButton login_btnSettings;
     private javax.swing.JTextField login_inputEmail;
     private javax.swing.JPasswordField login_inputPassword;
+    private javax.swing.JPanel main_panel;
     // End of variables declaration//GEN-END:variables
 }
