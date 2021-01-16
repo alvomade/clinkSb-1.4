@@ -120,12 +120,12 @@ public class clinkLogin extends javax.swing.JFrame {
         jLabel3.setBackground(new java.awt.Color(244, 244, 244));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(244, 244, 244));
-        jLabel3.setText("LOGIN");
+        jLabel3.setText("Login");
 
         login_btnSettings.setBackground(new java.awt.Color(28, 39, 84));
         login_btnSettings.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         login_btnSettings.setForeground(new java.awt.Color(255, 255, 255));
-        login_btnSettings.setText("SETTINGS");
+        login_btnSettings.setText("Settings");
         login_btnSettings.setBorder(null);
         login_btnSettings.setBorderPainted(false);
         login_btnSettings.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +155,7 @@ public class clinkLogin extends javax.swing.JFrame {
         login_btnLogin.setBackground(new java.awt.Color(28, 39, 84));
         login_btnLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         login_btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        login_btnLogin.setText("LAUNCH BOT");
+        login_btnLogin.setText("Launch bot");
         login_btnLogin.setBorder(null);
         login_btnLogin.setBorderPainted(false);
         login_btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -196,7 +196,7 @@ public class clinkLogin extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(244, 244, 244));
-        jLabel4.setText("Clink v1.4");
+        jLabel4.setText("Clink studybay bot v2.0 - login");
 
         btnExit1.setBackground(new java.awt.Color(28, 39, 84));
         btnExit1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -222,7 +222,7 @@ public class clinkLogin extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnExit1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -233,7 +233,7 @@ public class clinkLogin extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnExit1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
