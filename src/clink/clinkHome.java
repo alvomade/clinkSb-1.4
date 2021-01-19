@@ -372,7 +372,7 @@ public class clinkHome extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel2MousePressed
 
     protected void clink() throws InterruptedException, IOException{
-        System.setProperty("webdriver.chrome.driver", "drv.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriver");
 //        System.setProperty("webdriver.chrome.driver", "drv.exe");
 
     //removes chrome default test notification
@@ -385,7 +385,7 @@ public class clinkHome extends javax.swing.JFrame {
     driver = new ChromeDriver(options);
     
     //get filter subjects
-    String filter=Config.readFile("sare_hizo.txt");
+    String filter=Config.readFile("filter.txt");
      String [] filterArray=filter.split(",");
      
      int i=0;

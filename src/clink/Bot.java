@@ -172,8 +172,8 @@ public class Bot{
                  //check for unwanted orders
                 if(filter.length>0){
                   //subject
-                  //String subjectPlusType=order.findElement(By.className("orderA__category")).getText();
-                  String subjectPlusType=order.findElement(By.className(jsonArray.getJSONObject(5).getString("locator"))).getText();
+                  String subjectPlusType=order.findElement(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium' or @class='orderA__order orderA__order--paid']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__content']/div[@class='orderA__category']")).getText();
+//                  String subjectPlusType=order.findElement(By.className(jsonArray.getJSONObject(5).getString("locator"))).getText();
                   String[] subjectPlusTypeArray=subjectPlusType.split(",");
                   String subject;
                   try{
@@ -183,6 +183,7 @@ public class Bot{
                   }
                   
                   subject=subject.trim();
+                  System.out.println("subject is "+subject);
                   
                   if(!list.contains(subject)){
                     //close
@@ -205,7 +206,7 @@ public class Bot{
                 //click start bidding button
                 try{
                    //start_bidding 
-                  wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(jsonArray.getJSONObject(7).getString("locator")))).click();
+                  wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium'or @class='orderA__order orderA__order--paid']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='ui-collapse-item ui-collapse-item-active']/div[@class='ui-collapse-content ui-collapse-content-active']/div/div/div/div[2]/button"))).click();
                   //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='ui-collapse-item ui-collapse-item-active']/div[@class='ui-collapse-content ui-collapse-content-active']/div/div/div/div[2]/button
 //                  order.findElement(By.xpath(jsonArray.getJSONObject(7).getString("locator"))).click();
                 }
@@ -250,7 +251,6 @@ public class Bot{
                         continue;
                         }
                     //end of message placing
-                    
                     if(!priceLevel.equalsIgnoreCase("none")){   
                     //min,max,average
                         //minPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span[@class='styled__Amount-qyovge-7 cTVHAe'])[last()]"))).getText().substring(1);
@@ -293,10 +293,11 @@ public class Bot{
                         driver.navigate().refresh();
                         Config.errorFileWriter(e.toString());
                         Thread.sleep(delay*1000);
+                        continue;
                         }
-                        displayLog.append("bidded on: "+order.findElement(By.className("orderA__name")).getText()+"\n");
+//                        String orderTitle=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium' or @class='orderA__order orderA__order--paid']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__content']/div[@class='orderA__row5']/a"))).getText();
+//                        displayLog.append("bidded on: "+orderTitle+"\n");
                         displayLog.append("-----------------------------------------------------------------------------"+"\n");
-                        System.out.println("Bidd title: "+order.findElement(By.className("orderA__name")).getText());
                         Thread.sleep(delay*1000);
                         
                         
@@ -322,7 +323,7 @@ public class Bot{
                          if(unwantedsZiko){
                             displayLog.append("clearing unwanted subjects..... "+"\n");
                             for (WebElement anOrder : orders) {
-                                String subjectPlusType = anOrder.findElement(By.className(jsonArray.getJSONObject(5).getString("locator"))).getText();
+                                String subjectPlusType=anOrder.findElement(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium' or @class='orderA__order orderA__order--paid']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__content']/div[@class='orderA__category']")).getText();
                                 String[] subjectPlusTypeArray = subjectPlusType.split(",");
                                 String subject;
                                 try {
