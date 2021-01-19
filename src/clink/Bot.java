@@ -182,7 +182,7 @@ public class Bot{
                       subject="nothing";
                   }
                   
-                  subject=subject.trim();
+                  subject=subject.trim().toLowerCase();
                   System.out.println("subject is "+subject);
                   
                   if(!list.contains(subject)){
@@ -199,7 +199,6 @@ public class Bot{
                   
               
               }
-                System.out.println("its wanted");
                 
                 // end of check for unwanted orders
 
@@ -332,7 +331,7 @@ public class Bot{
                                     subject = "nothing";
                                 }
 
-                                subject = subject.trim();
+                                subject = subject.trim().toLowerCase();
 
                                 if (!list.contains(subject)) {
                                     //close

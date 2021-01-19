@@ -390,7 +390,8 @@ public class clinkHome extends javax.swing.JFrame {
      
      int i=0;
      while(i<filterArray.length){
-         filterArray[i]=WordUtils.capitalizeFully(filterArray[i]);
+         filterArray[i]=filterArray[i].toLowerCase();
+         System.out.println(filterArray[i]);
          i++;
      }
 
