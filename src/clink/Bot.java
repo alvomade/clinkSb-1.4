@@ -303,16 +303,16 @@ public class Bot{
                         //if its one bid per refresh
                         System.out.println(refreshAfterBid);
                         if(refreshAfterBid){    
-                            try{
-                            List<WebElement>closeReads=waitx2.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(jsonArray.getJSONObject(16).getString("locator"))));
-                            for(WebElement closeRead:closeReads){
-                                closeRead.click();
-                            }
-                            displayLog.append("refreshing..... "+"\n");
-                            }
-                            catch(Exception e){
-                            break;    
-                            }
+//                            try{
+//                            List<WebElement>closeReads=waitx2.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(jsonArray.getJSONObject(16).getString("locator"))));
+//                            for(WebElement closeRead:closeReads){
+//                                closeRead.click();
+//                            }
+//                            displayLog.append("refreshing..... "+"\n");
+//                            }
+//                            catch(Exception e){
+//                            break;    
+//                            }
                             
                             break;
                         }
