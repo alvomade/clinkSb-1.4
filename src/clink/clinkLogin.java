@@ -1,4 +1,3 @@
-
 package clink;
 
 import java.awt.Frame;
@@ -20,16 +19,16 @@ import javax.swing.ImageIcon;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-
 public class clinkLogin extends javax.swing.JFrame {
 
     String dbEmail = null;
     String dbExpiry = null;
     String dbKey = null;
+    int status = 0;
+    boolean activation = false;
     private int x;
     private int y;
-    
-    
+
     public clinkLogin() {
         super("Login");
 
@@ -296,10 +295,10 @@ public class clinkLogin extends javax.swing.JFrame {
     private void login_btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnLoginActionPerformed
         String email = login_inputEmail.getText().trim();
         String pass = new String(login_inputPassword.getPassword());
-        
+
         //new clinkHome(email, "1233", "12/12/2020",pass).setVisible(true);
-       System.out.println(System.currentTimeMillis());
-        
+        System.out.println(System.currentTimeMillis());
+
         if (email.equals("")) {
             JOptionPane.showMessageDialog(null, "Add A Email");
         } else if (!(isValid(email))) {
@@ -307,89 +306,52 @@ public class clinkLogin extends javax.swing.JFrame {
         } else if (pass.equals("")) {
             JOptionPane.showMessageDialog(null, "Add A Password");
         } else {
-            
-//            PreparedStatement ps;
-//            ResultSet rs;
-//            
-//            String query = "SELECT * FROM `subscription` WHERE `email` =?";
-//
-//            try {
-//                ps = connection.getConnection().prepareStatement(query);
-//                ps.setString(1, email);
-//
-//                rs = ps.executeQuery();
-//
-//                if (rs.next()) {
-//                        dbEmail = rs.getString("email");
-//                        dbKey = rs.getString("activation_key");
-//                        dbExpiry = rs.getString("end");
-        String activationCode=Config.readFile("activationCode.txt");
-        
-                try {
-                            URL url = new URL("http://sb.clink.co.ke/getExpiry.php?act="+activationCode);
-                            HttpURLConnection httpURLConnection=(HttpURLConnection)url.openConnection();
-                            httpURLConnection.setRequestMethod("GET");
 
 
+            String activationCode = Config.readFile("activationCode.txt");
 
-                            String line="";
-                            InputStreamReader inputStreamReader=new InputStreamReader(httpURLConnection.getInputStream());
-                            BufferedReader bufferedReader=new BufferedReader(inputStreamReader);
-                            StringBuilder response=new StringBuilder();
-                            while ((line=bufferedReader.readLine())!=null){
-                                response.append(line);
-                            }
-                            bufferedReader.close();
+            try {
+                URL url = new URL("http://sb.clink.co.ke/getExpAndUser.php?act=" + activationCode);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("GET");
 
-                            //adding square brackets t0 make a valid json array
-                            String datas="["+response.toString()+"]";
-                            JSONArray jsonArray=new JSONArray(datas);
-                            JSONObject jsonObject1 = jsonArray.getJSONObject(0);
+                String line = "";
+                InputStreamReader inputStreamReader = new InputStreamReader(httpURLConnection.getInputStream());
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                StringBuilder response = new StringBuilder();
+                while ((line = bufferedReader.readLine()) != null) {
+                    response.append(line);
+                }
+                bufferedReader.close();
 
-                            int status=jsonObject1.getInt("status");
+                //adding square brackets t0 make a valid json array
+                String datas = "[" + response.toString() + "]";
+                JSONArray jsonArray = new JSONArray(datas);
+                JSONObject jsonObject1 = jsonArray.getJSONObject(0);
 
-                            if(status==1){
-                                dbExpiry=jsonObject1.getString("exp");
-                            }else{
-                                JOptionPane.showMessageDialog(null, "Your account is not registered with clink");
-                            }
+                status = jsonObject1.getInt("status");
 
+                if (status == 1) {
+                    dbExpiry = jsonObject1.getString("exp");
+                    activation = Boolean.parseBoolean(jsonObject1.getString("activation"));
+                } else {
+                    JOptionPane.showMessageDialog(null, "Your account is not registered with clink");
+                }
 
+            } catch (Exception e) {
+                System.out.println("Error in Making Get Request" + e);
+            }
 
+            if (activation && status == 1) {
+                JOptionPane.showMessageDialog(null, "Subscription is active,Expiry on" + dbExpiry + ". proceed...");
+                //new clinkHome(dbEmail, dbKey, dbExpiry,pass).setVisible(true);
+                this.dispose();
+                new clinkHome(email, activationCode, dbExpiry, pass).setVisible(true);
 
+            } else if (status == 1 && activation == false) {
+                JOptionPane.showMessageDialog(null, "Your Activation EXPIRED!!!");
+            }
 
-                        }
-                        catch (Exception e){
-                            System.out.println("Error in Making Get Request"+e);
-                        }
-
-
-                        int remaining = Activation.activationStatus(dbExpiry);
-                        
-                        //Boolean compare = email.equals(dbEmail);
-                        Boolean compare =true;
-                        
-                        if(compare ==true && remaining > 0) {
-                            JOptionPane.showMessageDialog(null, "Subscription is active,Expiry on"+dbExpiry+". proceed...");
-                            //new clinkHome(dbEmail, dbKey, dbExpiry,pass).setVisible(true);
-                            this.dispose();
-                            new clinkHome(email,"1233",dbExpiry,pass).setVisible(true);
-                            
-                        }else if(compare = true && remaining < 1) {
-                            JOptionPane.showMessageDialog(null, "Your Activation EXPIRED!");
-                        }
-//                        else{
-//                            JOptionPane.showMessageDialog(null, "User Doesnt Exist! ");
-//                        }
-//  
-//
-//                } else {
-//                JOptionPane.showMessageDialog(null, "User Doesnt Exist! ");
-//                this.dispose();
-//                }
-//            } catch (SQLException ex) {
-//                JOptionPane.showMessageDialog(null, ex);
-//            }
         }
     }//GEN-LAST:event_login_btnLoginActionPerformed
 
@@ -404,14 +366,14 @@ public class clinkLogin extends javax.swing.JFrame {
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         int result = JOptionPane.showConfirmDialog(null, "Do you want to Exit ?", "Exit Confirmation : ",
-                        JOptionPane.YES_NO_OPTION);
-        
-                if (result == JOptionPane.YES_OPTION) {
-                    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    this.dispose();
-                } else if (result == JOptionPane.NO_OPTION) {
-                    setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-                }
+                JOptionPane.YES_NO_OPTION);
+
+        if (result == JOptionPane.YES_OPTION) {
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+        } else if (result == JOptionPane.NO_OPTION) {
+            setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        }
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
@@ -427,9 +389,9 @@ public class clinkLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExit1ActionPerformed
 
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
-        int x = evt.getXOnScreen()-this.x;
-        int y = evt.getYOnScreen()-this.y;
-        this.setLocation(x,y);
+        int x = evt.getXOnScreen() - this.x;
+        int y = evt.getYOnScreen() - this.y;
+        this.setLocation(x, y);
     }//GEN-LAST:event_formMouseDragged
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
@@ -443,9 +405,9 @@ public class clinkLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel2MousePressed
 
     private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
-        int x = evt.getXOnScreen()-this.x;
-        int y = evt.getYOnScreen()-this.y;
-        this.setLocation(x,y);
+        int x = evt.getXOnScreen() - this.x;
+        int y = evt.getYOnScreen() - this.y;
+        this.setLocation(x, y);
     }//GEN-LAST:event_jPanel2MouseDragged
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -453,45 +415,46 @@ public class clinkLogin extends javax.swing.JFrame {
         setIconImage(icon.getImage());
     }//GEN-LAST:event_formWindowActivated
 
-     public static boolean isValid(String email) 
-    { 
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
-                            "[a-zA-Z0-9_+&*-]+)*@" + 
-                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" + 
-                            "A-Z]{2,7}$"; 
-                              
-        Pattern pat = Pattern.compile(emailRegex); 
-        if (email == null) 
-            return false; 
-        return pat.matcher(email).matches(); 
-    } 
-     
-     public static void getCurrentDate(){
-      
-     }
+    public static boolean isValid(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."
+                + "[a-zA-Z0-9_+&*-]+)*@"
+                + "(?:[a-zA-Z0-9-]+\\.)+[a-z"
+                + "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null) {
+            return false;
+        }
+        return pat.matcher(email).matches();
+    }
+
+    public static void getCurrentDate() {
+
+    }
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         try {
-    for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-      if ("Nimbus".equals(info.getName())) {
-          javax.swing.UIManager.setLookAndFeel(info.getClassName());
-          break;
-      }
-    }
-  } catch (ClassNotFoundException e) {
-    e.printStackTrace();
-  } catch (InstantiationException e) {
-    e.printStackTrace();
-  } catch (IllegalAccessException e) {
-    e.printStackTrace();
-  } catch (javax.swing.UnsupportedLookAndFeelException e) {
-    e.printStackTrace();
-  } catch (Exception e) {
-    e.printStackTrace();
-  }
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (javax.swing.UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

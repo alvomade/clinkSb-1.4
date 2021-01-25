@@ -6,11 +6,17 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Collections;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -18,7 +24,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class clinkHome extends javax.swing.JFrame {
     
-    static String email, code, expiry, password=null;
+    static String email, activationCode, expiry, password=null;
     String bidStatus = "null";
     boolean suspended = false;
     WebDriver driver = null;
@@ -36,10 +42,10 @@ public class clinkHome extends javax.swing.JFrame {
         }
     });
     
-    public clinkHome(String email, String code, String expiry, String password) {
+    public clinkHome(String email, String activationCode, String expiry, String password) {
         super("Clink-home/"+email);
         this.email=email;
-        this.code=code;
+        this.activationCode=activationCode;
         this.expiry=expiry;
         this.password=password;
         
@@ -372,8 +378,8 @@ public class clinkHome extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel2MousePressed
 
     protected void clink() throws InterruptedException, IOException{
-//        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver", "drv.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriver");
+//        System.setProperty("webdriver.chrome.driver", "drv.exe");
 
     //removes chrome default test notification
     ChromeOptions options = new ChromeOptions();
@@ -425,12 +431,45 @@ public class clinkHome extends javax.swing.JFrame {
        
        
        if(Bot.login(driver,email,password)==true){
-           displayLog.append("login successful...\n");
-           displayLog.append("bidding...\n");
-           Bot.bid(driver,delay, priceLevel,refreshAfterBid,filterArray, displayLog); 
+           //confirm single user single activation
+           try {
+                URL url = new URL("http://sb.clink.co.ke/setUser.php?act=" + activationCode+"&user="+email);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("GET");
+
+                String line = "";
+                InputStreamReader inputStreamReader = new InputStreamReader(httpURLConnection.getInputStream());
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                StringBuilder response = new StringBuilder();
+                while ((line = bufferedReader.readLine()) != null) {
+                    response.append(line);
+                }
+                bufferedReader.close();
+
+                //adding square brackets t0 make a valid json array
+                String datas = "[" + response.toString() + "]";
+                JSONArray jsonArray = new JSONArray(datas);
+                JSONObject jsonObject1 = jsonArray.getJSONObject(0);
+
+                int status = jsonObject1.getInt("status");
+
+                if (status == 1) {
+                   displayLog.append("login successful...\n");
+                   displayLog.append("bidding...\n");
+                   Bot.bid(driver, delay, priceLevel, refreshAfterBid, filterArray, displayLog);
+               } else {
+                    displayLog.append("ERROR,this activation belongs to another user...\n");
+                }
+
+            } catch (Exception e) {
+                System.out.println("ERROR in Making Get Request" + e);
+            }
+           //end of confirm single user single activation
+           
+           
            
        }else{
-       displayLog.append("error, signing in, relaunch and enter the correct login details...\n");
+       displayLog.append("ERROR signing in, relaunch and enter the correct login details...\n");
        }
        
         
@@ -462,7 +501,7 @@ public class clinkHome extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new clinkHome(email,code,expiry,password).setVisible(true);
+                new clinkHome(email,activationCode,expiry,password).setVisible(true);
             }
         });
     }

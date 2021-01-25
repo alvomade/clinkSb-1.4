@@ -136,6 +136,38 @@ public class Bot{
         displayLog.append("-----------------------------------------------------------------------------"+"\n");
         
         for(WebElement order:orders){
+                //check for unwanted orders
+                if(filter.length>0){
+                  //subject
+                  String subjectPlusType=order.findElement(By.xpath("//div[@class='orderA__category']")).getText();
+//                  String subjectPlusType=order.findElement(By.className(jsonArray.getJSONObject(5).getString("locator"))).getText();
+                  String[] subjectPlusTypeArray=subjectPlusType.split(",");
+                  String subject;
+                  try{
+                      subject=subjectPlusTypeArray[1];
+                  }catch(ArrayIndexOutOfBoundsException e){
+                      subject="nothing";
+                  }
+                  
+                  subject=subject.trim().toLowerCase();
+                  System.out.println("subject is "+subject);
+                  
+                  if(!list.contains(subject)){
+                    //close
+                    //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__meta']/div[@class='orderA__actions']/button[contains(.,'Hide')]"))).click();
+//                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath(jsonArray.getJSONObject(6).getString("locator")))).click();
+                    //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]
+                    displayLog.append("["+subject+"]"+" is unwanted, looking for new orders... \n");
+                    unwantedsZiko=true;
+                    continue;
+                  }else{
+                      displayLog.append("Subject "+"["+subject+"]"+"\n");
+                  }
+                  
+              
+              }
+                
+                // end of check for unwanted orders
                 //more
                 try{
                     //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__meta']/div[@class='orderA__actions']/button[contains(.,'More')]"))).click();
@@ -149,7 +181,7 @@ public class Bot{
 //                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@aria-label='Close']"))).click();
 //                    driver.findElement(By.xpath("//span[@aria-label='Close']")).click();
                     Config.errorFileWriter(e.toString());
-                    continue;
+                    break;
                 }
                 catch(StaleElementReferenceException e){
                     Config.errorFileWriter(e.toString());
@@ -169,38 +201,7 @@ public class Bot{
                     continue;
                 }
               
-                 //check for unwanted orders
-                if(filter.length>0){
-                  //subject
-                  String subjectPlusType=order.findElement(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium' or @class='orderA__order orderA__order--paid']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__content']/div[@class='orderA__category']")).getText();
-//                  String subjectPlusType=order.findElement(By.className(jsonArray.getJSONObject(5).getString("locator"))).getText();
-                  String[] subjectPlusTypeArray=subjectPlusType.split(",");
-                  String subject;
-                  try{
-                      subject=subjectPlusTypeArray[1];
-                  }catch(ArrayIndexOutOfBoundsException e){
-                      subject="nothing";
-                  }
-                  
-                  subject=subject.trim().toLowerCase();
-                  System.out.println("subject is "+subject);
-                  
-                  if(!list.contains(subject)){
-                    //close
-                    //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__meta']/div[@class='orderA__actions']/button[contains(.,'Hide')]"))).click();
-                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath(jsonArray.getJSONObject(6).getString("locator")))).click();
-                    //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]
-                    displayLog.append("["+subject+"]"+" is unwanted, looking for new orders... \n");
-                    unwantedsZiko=true;
-                    continue;
-                  }else{
-                      displayLog.append("Subject "+"["+subject+"]"+"\n");
-                  }
-                  
-              
-              }
-                
-                // end of check for unwanted orders
+                 
 
                 //click start bidding button
                 try{
@@ -323,7 +324,8 @@ public class Bot{
                          if(unwantedsZiko){
                             displayLog.append("clearing unwanted subjects..... "+"\n");
                             for (WebElement anOrder : orders) {
-                                String subjectPlusType=anOrder.findElement(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium' or @class='orderA__order orderA__order--paid']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__content']/div[@class='orderA__category']")).getText();
+                                //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium' or @class='orderA__order orderA__order--paid']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__content']/div[@class='orderA__category']
+                                String subjectPlusType=anOrder.findElement(By.xpath("//div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__content']/div[@class='orderA__category']")).getText();
                                 String[] subjectPlusTypeArray = subjectPlusType.split(",");
                                 String subject;
                                 try {
