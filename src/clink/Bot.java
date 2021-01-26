@@ -108,6 +108,7 @@ public class Bot{
         int i=0;     
         JSONArray jsonArray = Bot.selectors();
         WebDriverWait wait=new WebDriverWait(driver,15);
+        WebDriverWait waitKiasi=new WebDriverWait(driver,3);
         WebDriverWait waitx2=new WebDriverWait(driver,30);
         List<String> list = Arrays.asList(filter);
         Boolean unwantedsZiko=false;
@@ -131,22 +132,31 @@ public class Bot{
          }catch(Exception e){}
         }
         
-        System.out.println("found "+orders.size()+" ordersz");
         displayLog.append("found "+orders.size()+" order(s) \n");
         displayLog.append("-----------------------------------------------------------------------------"+"\n");
         
+        int unwanteds=0;
         for(WebElement order:orders){
+                
                 //check for unwanted orders
                 if(filter.length>0){
                   //subject
-                  String subjectPlusType=order.findElement(By.xpath("//div[@class='orderA__category']")).getText();
-//                  String subjectPlusType=order.findElement(By.className(jsonArray.getJSONObject(5).getString("locator"))).getText();
+                  String subjectPlusType="";
+                  String subject="";
+                  System.out.println(order.findElement(By.xpath("//div/div[@class='orderA__contentWrapper']/div/div/div[@class='orderA__row5']/a")).getText());
+                  try{
+                  subjectPlusType=waitKiasi.until(ExpectedConditions.visibilityOf(order.findElement(By.xpath("//div/div[@class='orderA__contentWrapper']/div/div/div[@class='orderA__category']")))).getText();
+                  }catch(Exception e){
+                      System.out.println("kuna shida na sub");
+                  }
+                  
                   String[] subjectPlusTypeArray=subjectPlusType.split(",");
-                  String subject;
+                  
                   try{
                       subject=subjectPlusTypeArray[1];
                   }catch(ArrayIndexOutOfBoundsException e){
                       subject="nothing";
+    
                   }
                   
                   subject=subject.trim().toLowerCase();
@@ -158,8 +168,14 @@ public class Bot{
 //                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath(jsonArray.getJSONObject(6).getString("locator")))).click();
                     //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]
                     displayLog.append("["+subject+"]"+" is unwanted, looking for new orders... \n");
-                    unwantedsZiko=true;
-                    continue;
+                    try{
+                        order.findElement(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium' or @class='orderA__order orderA__order--paid']/div[@class='orderA__order__wrapper']/div[2]/button[1]")).click();
+
+                    }catch(Exception e){
+                    break;
+                    }
+                    break;
+                     
                   }else{
                       displayLog.append("Subject "+"["+subject+"]"+"\n");
                   }
@@ -176,7 +192,6 @@ public class Bot{
                     displayLog.append("Bidding order... \n");
                     
                 }catch(ElementClickInterceptedException e){
-                    driver.navigate().refresh();
                     displayLog.append("clicking the more button was intercepted, fixing... \n");
 //                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@aria-label='Close']"))).click();
 //                    driver.findElement(By.xpath("//span[@aria-label='Close']")).click();
@@ -186,8 +201,7 @@ public class Bot{
                 catch(StaleElementReferenceException e){
                     Config.errorFileWriter(e.toString());
                     displayLog.append("the \"more\" button is stale, fixing... \n");
-                    driver.navigate().refresh();
-                    continue;
+                    break;
                     //this will try clicking the element again and refreshes on failure
 //                    if(retryingFindClick(driver,"//button[contains(., 'More')]")==false){
 //                        driver.navigate().refresh();
@@ -197,8 +211,7 @@ public class Bot{
                 catch(Exception e){
                     Config.errorFileWriter(e.toString());
                     displayLog.append("failed to click the more button, fixing... \n");
-                    driver.navigate().refresh();
-                    continue;
+                    break;
                 }
               
                  
@@ -206,21 +219,21 @@ public class Bot{
                 //click start bidding button
                 try{
                    //start_bidding 
-                  wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium'or @class='orderA__order orderA__order--paid']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='ui-collapse-item ui-collapse-item-active']/div[@class='ui-collapse-content ui-collapse-content-active']/div/div/div/div[2]/button"))).click();
-                  //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='ui-collapse-item ui-collapse-item-active']/div[@class='ui-collapse-content ui-collapse-content-active']/div/div/div/div[2]/button
+                   //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium'or @class='orderA__order orderA__order--paid']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='ui-collapse-item ui-collapse-item-active']/div[@class='ui-collapse-content ui-collapse-content-active']/div/div/div/div[2]/button
+                  wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(jsonArray.getJSONObject(7).getString("locator")))).click();
 //                  order.findElement(By.xpath(jsonArray.getJSONObject(7).getString("locator"))).click();
                 }
                 catch(NoSuchElementException e){
 //                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@aria-label='Close']")));
                     Config.errorFileWriter(e.toString());
-                    driver.navigate().refresh();
-                    continue;
+//                    driver.navigate().refresh();
+                    break;
                 }
                 catch(Exception e){
-                    System.out.println(e);
+                    displayLog.append("Failed to click the start bidding button[1]... \n");
                     Config.errorFileWriter(e.toString());
-                    driver.navigate().refresh();
-                    continue;
+//                    driver.navigate().refresh();
+                    break;
                 }
                 //end of click start bidding button  
        
@@ -233,7 +246,7 @@ public class Bot{
                         driver.navigate().refresh();
                         Config.errorFileWriter(e.toString());
                         Thread.sleep(delay*1000);
-                        continue;
+                        break;
                     }
                     
                     //message_select    
@@ -248,20 +261,15 @@ public class Bot{
                         driver.navigate().refresh();
                         Config.errorFileWriter(e.toString());
                         Thread.sleep(delay*1000);
-                        continue;
+                        break;
                         }
                     //end of message placing
                     if(!priceLevel.equalsIgnoreCase("none")){   
-                    //min,max,average
-                        //minPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span[@class='styled__Amount-qyovge-7 cTVHAe'])[last()]"))).getText().substring(1);
                         minPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(jsonArray.getJSONObject(10).getString("locator")))).getText().substring(1);
-                        //avPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span[@class='styled__Amount-qyovge-7 gQtpqC'])[last()]"))).getText().substring(1);
                         avPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(jsonArray.getJSONObject(11).getString("locator")))).getText().substring(1);
-                        //maxPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span[@class='styled__Amount-qyovge-7 gSIIkh'])[last()]"))).getText().substring(1);
                         maxPrice=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(jsonArray.getJSONObject(12).getString("locator")))).getText().substring(1);
                         
                         //price_input
-                        //WebElement inputAmount=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@class='styled__Wrapper-sc-1novt9v-2 fLTTlZ']/div/div/input)[last()]")));
                         WebElement inputAmount=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(jsonArray.getJSONObject(13).getString("locator"))));
 
                             switch(priceLevel){
@@ -283,37 +291,34 @@ public class Bot{
                             }
                             
                     }
-//                     end of check price level
+                   //end of check price level
+                   
                         //start_bidding
                         try{
-                        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='ui-modal-content']/div[@class='ui-modal-body']/div/div[@class='sb-makeOffer__actions']/div/button[1])[last()]"))).click();
                         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(jsonArray.getJSONObject(14).getString("locator")))).click();
                         }
                         catch(Exception e){
                         driver.navigate().refresh();
                         Config.errorFileWriter(e.toString());
                         Thread.sleep(delay*1000);
-                        continue;
+                        break;
                         }
-//                        String orderTitle=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium' or @class='orderA__order orderA__order--paid']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__content']/div[@class='orderA__row5']/a"))).getText();
-//                        displayLog.append("bidded on: "+orderTitle+"\n");
                         displayLog.append("-----------------------------------------------------------------------------"+"\n");
-//                        Thread.sleep(delay*1000);
                         
                         
                         //if its one bid per refresh
                         System.out.println(refreshAfterBid);
                         if(refreshAfterBid){    
-//                            try{
-//                            List<WebElement>closeReads=waitx2.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(jsonArray.getJSONObject(16).getString("locator"))));
-//                            for(WebElement closeRead:closeReads){
-//                                closeRead.click();
-//                            }
-//                            displayLog.append("refreshing..... "+"\n");
-//                            }
-//                            catch(Exception e){
-//                            break;    
-//                            }
+                            try{
+                            List<WebElement>closeReads=waitKiasi.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(jsonArray.getJSONObject(16).getString("locator"))));
+                            for(WebElement closeRead:closeReads){
+                                closeRead.click();
+                            }
+                            displayLog.append("refreshing..... "+"\n");
+                            }
+                            catch(Exception e){
+                            break;    
+                            }
                             
                             break;
                         }
@@ -321,29 +326,29 @@ public class Bot{
                
         }
                         //closing all unwanteds
-                         if(unwantedsZiko){
-                            displayLog.append("clearing unwanted subjects..... "+"\n");
-                            for (WebElement anOrder : orders) {
-                                //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium' or @class='orderA__order orderA__order--paid']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__content']/div[@class='orderA__category']
-                                String subjectPlusType=anOrder.findElement(By.xpath("//div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__content']/div[@class='orderA__category']")).getText();
-                                String[] subjectPlusTypeArray = subjectPlusType.split(",");
-                                String subject;
-                                try {
-                                    subject = subjectPlusTypeArray[1];
-                                } catch (ArrayIndexOutOfBoundsException e) {
-                                    subject = "nothing";
-                                }
-
-                                subject = subject.trim().toLowerCase();
-
-                                if (!list.contains(subject)) {
-                                    //close
-                                    waitx2.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]"))).click();                                    //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]
-                                }
-                            unwantedsZiko=false;
-                            displayLog.append("-----------------------------------------------------------------------------"+"\n");
-                          }
-                         }
+//                         if(unwantedsZiko){
+//                            displayLog.append("clearing unwanted subjects..... "+"\n");
+//                            for (WebElement anOrder : orders) {
+//                                //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium' or @class='orderA__order orderA__order--paid']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__content']/div[@class='orderA__category']
+//                                String subjectPlusType=anOrder.findElement(By.xpath("//div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__content']/div[@class='orderA__category']")).getText();
+//                                String[] subjectPlusTypeArray = subjectPlusType.split(",");
+//                                String subject;
+//                                try {
+//                                    subject = subjectPlusTypeArray[1];
+//                                } catch (ArrayIndexOutOfBoundsException e) {
+//                                    subject = "nothing";
+//                                }
+//
+//                                subject = subject.trim().toLowerCase();
+//
+//                                if (!list.contains(subject)) {
+//                                    //close
+//                                    waitx2.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]"))).click();                                    //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]
+//                                }
+//                            unwantedsZiko=false;
+//                            displayLog.append("-----------------------------------------------------------------------------"+"\n");
+//                          }
+//                         }
                          
         driver.navigate().refresh();
         }
