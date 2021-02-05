@@ -139,7 +139,8 @@ public class Bot{
         for(WebElement order:orders){
                 
                 //check for unwanted orders
-                if(filter.length>0){
+                //removed in lite 2.1
+                if(!Arrays.asList(filter).contains("All")){
                   //subject
                   String subjectPlusType="";
                   String subject="";
@@ -308,6 +309,16 @@ public class Bot{
                         
                         //if its one bid per refresh
                         System.out.println(refreshAfterBid);
+                        if(refreshAfterBid){  
+                            break;
+                            
+                        }
+                        
+               
+        }
+        
+            //if its one bid per refresh
+                        System.out.println(refreshAfterBid);
                         if(refreshAfterBid){    
                             try{
                             List<WebElement>closeReads=waitKiasi.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(jsonArray.getJSONObject(16).getString("locator"))));
@@ -317,38 +328,10 @@ public class Bot{
                             displayLog.append("refreshing..... "+"\n");
                             }
                             catch(Exception e){
-                            break;    
                             }
                             
-                            break;
                         }
-                        
-               
-        }
-                        //closing all unwanteds
-//                         if(unwantedsZiko){
-//                            displayLog.append("clearing unwanted subjects..... "+"\n");
-//                            for (WebElement anOrder : orders) {
-//                                //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium' or @class='orderA__order orderA__order--paid']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__content']/div[@class='orderA__category']
-//                                String subjectPlusType=anOrder.findElement(By.xpath("//div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__content']/div[@class='orderA__category']")).getText();
-//                                String[] subjectPlusTypeArray = subjectPlusType.split(",");
-//                                String subject;
-//                                try {
-//                                    subject = subjectPlusTypeArray[1];
-//                                } catch (ArrayIndexOutOfBoundsException e) {
-//                                    subject = "nothing";
-//                                }
-//
-//                                subject = subject.trim().toLowerCase();
-//
-//                                if (!list.contains(subject)) {
-//                                    //close
-//                                    waitx2.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]"))).click();                                    //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[2]/button[1]
-//                                }
-//                            unwantedsZiko=false;
-//                            displayLog.append("-----------------------------------------------------------------------------"+"\n");
-//                          }
-//                         }
+
                          
         driver.navigate().refresh();
         }
