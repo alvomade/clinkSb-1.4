@@ -195,7 +195,7 @@ public class clinkLogin extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(244, 244, 244));
-        jLabel4.setText("Clink studybay bot v2.0 - login");
+        jLabel4.setText("Clink studybay bot v2.2 - login");
 
         btnExit1.setBackground(new java.awt.Color(28, 39, 84));
         btnExit1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N

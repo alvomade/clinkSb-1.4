@@ -79,7 +79,7 @@
                       <Component id="subjects_btnSave" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="settings_btnBack" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <EmptySpace pref="24" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2453,7 +2453,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" pref="264" max="-2" attributes="0"/>
+                      <Component id="jLabel4" min="-2" pref="328" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btnExit2" min="-2" pref="29" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -2504,7 +2504,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f4" green="f4" red="f4" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Clink studybay bot v2.0 - Select subjects"/>
+                <Property name="text" type="java.lang.String" value="Clink studybay bot v2.2 - Filter Subject"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnExit2">
