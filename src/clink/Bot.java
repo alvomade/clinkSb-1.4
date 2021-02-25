@@ -139,8 +139,8 @@ public class Bot{
         for(WebElement order:orders){
                 
                 //check for unwanted orders
-                //removed in lite 2.1
-                if(!Arrays.asList(filter).contains("All")){
+               System.out.println("first in the list is  "+filter[0]);
+                if(!filter[0].equalsIgnoreCase("all")){
                   //subject
                   String subjectPlusType="";
                   String subject="";
@@ -189,13 +189,10 @@ public class Bot{
                 try{
                     //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='orderA__wrapper']/div[@class='orderA__meta']/div[@class='orderA__actions']/button[contains(.,'More')]"))).click();
                     wait.until(ExpectedConditions.elementToBeClickable(By.xpath(jsonArray.getJSONObject(4).getString("locator")))).click();
-                    System.out.println("expand btn clicked");
                     displayLog.append("Bidding order... \n");
                     
                 }catch(ElementClickInterceptedException e){
                     displayLog.append("clicking the more button was intercepted, fixing... \n");
-//                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@aria-label='Close']"))).click();
-//                    driver.findElement(By.xpath("//span[@aria-label='Close']")).click();
                     Config.errorFileWriter(e.toString());
                     break;
                 }
@@ -203,11 +200,7 @@ public class Bot{
                     Config.errorFileWriter(e.toString());
                     displayLog.append("the \"more\" button is stale, fixing... \n");
                     break;
-                    //this will try clicking the element again and refreshes on failure
-//                    if(retryingFindClick(driver,"//button[contains(., 'More')]")==false){
-//                        driver.navigate().refresh();
-//                        continue;
-//                    }
+
                 }
                 catch(Exception e){
                     Config.errorFileWriter(e.toString());
@@ -222,12 +215,10 @@ public class Bot{
                    //start_bidding 
                    //div[@class='orderA__order' or @class=' orderA__order--read' or @class='orderA__order--paid'  or @class='orderA__order--premium'or @class='orderA__order orderA__order--paid']/div[@class='orderA__order__wrapper']/div[@class='orderA__contentWrapper']/div[@class='ui-collapse-item ui-collapse-item-active']/div[@class='ui-collapse-content ui-collapse-content-active']/div/div/div/div[2]/button
                   wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(jsonArray.getJSONObject(7).getString("locator")))).click();
-//                  order.findElement(By.xpath(jsonArray.getJSONObject(7).getString("locator"))).click();
                 }
                 catch(NoSuchElementException e){
 //                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@aria-label='Close']")));
                     Config.errorFileWriter(e.toString());
-//                    driver.navigate().refresh();
                     break;
                 }
                 catch(Exception e){
