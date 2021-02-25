@@ -26,12 +26,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel2" alignment="0" pref="587" max="32767" attributes="0"/>
+          <Component id="jPanel2" alignment="0" min="-2" pref="600" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel2" min="-2" pref="521" max="-2" attributes="0"/>
+          <Component id="jPanel2" pref="480" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -54,17 +54,17 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel4" alignment="1" max="32767" attributes="0"/>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="571" max="-2" attributes="0"/>
+                  <EmptySpace pref="15" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Component id="subjects_btnSave" min="-2" pref="172" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="settings_btnBack" min="-2" pref="177" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" pref="558" max="-2" attributes="0"/>
-                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -72,8 +72,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" pref="391" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="359" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="subjects_btnSave" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
@@ -136,7 +136,7 @@
                   <Color blue="3b" green="1c" red="13" type="rgb"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[450, 1950]"/>
+                  <Dimension value="[450, 1975]"/>
                 </Property>
               </Properties>
               <Events>
@@ -150,173 +150,182 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="checkAfricanHistory" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkArtDesign" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkCreativeWriting" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkPoetry" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkTheology" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAmericanHistory" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkArtHistory" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAncientHistory" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkCriminalLaw" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkEnglishLanguage" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                  <Component id="checkJurisprudence" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkModernHistory" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="checkFashion" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
-                              <Component id="checkFilm" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkLaw" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkMusic" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkRussianHistory" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkVisualArts" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkDentistry" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkChildcare" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBusinessAnalysis" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBlockchain" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkOther" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAccounting" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkFluidMechanics" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkEngineering" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkDigitalInnovationTransformation" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkCivilEngineering" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBusinessManagement" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBrandValue" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkMarketing" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAdvertising" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkRealProperty" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkMoneyBanking" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkMaterialsScienceEngineering" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkInvestmentStrategies" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkElectricalEngineering" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkHealthCare" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAll" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkTheoryComputation" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkQuantumComputing" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkPhysicalChemistry" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkNutrition" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkMathematicalPhysics" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkInformationTheory" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkGeometry" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkEcology" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkGameTheory" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkDataStructures" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkComputerGraphics" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkCode" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBiology" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkArtificialIntelligenece" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAnalyticalChemistry" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkTopology" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkSpaceSciences" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkPhysics" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkOperatingSystems" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkMathematics" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkGraphTheory" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkInorganicChemestry" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkGeneralBiology" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkEnvironmentalChemistry" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkDistributedComputing" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkComputerScience" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkCellBiology" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkCombinatorics" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAstronomy" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAppliedMathematics" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAlgebra" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkHumanGeography" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkCommunicationStudies" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkPsychology" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkHumanRights" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkSocialWork" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkCriminology" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkSociology" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkStrategyTechnology" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkNegotiation" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkMechanicalEngineering" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkHospitality" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkLogistics" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="checkAfricanHistory" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkArtDesign" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkCreativeWriting" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkPoetry" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkTheology" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAmericanHistory" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkArtHistory" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAncientHistory" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkCriminalLaw" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkEnglishLanguage" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                          <Component id="checkJurisprudence" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="checkModernHistory" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="checkFilm" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkLaw" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkMusic" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkRussianHistory" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkVisualArts" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkDentistry" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkChildcare" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkBusinessAnalysis" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkBlockchain" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkOther" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAccounting" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkFluidMechanics" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkEngineering" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkDigitalInnovationTransformation" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkCivilEngineering" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkBusinessManagement" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkBrandValue" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkMarketing" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAdvertising" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkRealProperty" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkMoneyBanking" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkMaterialsScienceEngineering" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkInvestmentStrategies" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkElectricalEngineering" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkHealthCare" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAll" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkTheoryComputation" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkQuantumComputing" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkPhysicalChemistry" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkNutrition" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkMathematicalPhysics" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkInformationTheory" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkGeometry" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkEcology" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkGameTheory" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkDataStructures" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkComputerGraphics" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkCode" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkBiology" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkArtificialIntelligenece" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAnalyticalChemistry" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkTopology" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkSpaceSciences" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkPhysics" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkOperatingSystems" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkMathematics" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkGraphTheory" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkInorganicChemestry" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkGeneralBiology" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkEnvironmentalChemistry" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkDistributedComputing" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkComputerScience" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkCellBiology" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkCombinatorics" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAstronomy" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAppliedMathematics" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAlgebra" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkHumanGeography" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkCommunicationStudies" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkPsychology" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkHumanRights" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkSocialWork" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkCriminology" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkSociology" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkStrategyTechnology" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkNegotiation" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkMechanicalEngineering" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkHospitality" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkLogistics" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="checkHistoryLiterature" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkPhylosophy" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkLinguistics" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkTheatre" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkWorldLiterature" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkHistory" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkArchitecture" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAsianHistory" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkDance" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkHistoryCulture" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkLegalManagement" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkPerformingArts" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkTelevision" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkWorldHistory" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAppliedArts" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAdministrativeLaw" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkCivilLaw" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkLiterature" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkNursing" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAnalysisStructures" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkMedicineHealth" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkStructuralDesign" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkPharmacology" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkOperationsManagement" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAudit" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkBuildingMaterialsTheory" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkCapitalMarkets" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkClinicalPhysiology" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkEconometrics" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkFoodAgribusiness" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkEntrepreneurship" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkHumanResource" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkMacroeconomics" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkBusiness" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkChemicalEngineering" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkBusinessEntertainment" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkArchaeology" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkPoliticalScience" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkEducation" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkEconomics" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkCryptocurrencies" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkEducationalTechnology" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkEnvironmentalSciences" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkManagementStudies" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkHydrologyHydrolicSystems" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkMicroeconomics" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkPhysicalEducation" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAnthropology" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkCulturalStudies" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkEarthScience" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkGeology" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkImmunology" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkMathematicalLogic" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkTourism" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAnalysis" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkApproximationTheory" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkChemistry" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkBiochemistry" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkComputerCommunications" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkCryptography" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkNumericalAnalysis" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkOrganicChemistry" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkComputerArchitecture" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkEvolutionaryBiology" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkComputerSecurity" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkDynamicalSystems" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkProgrammingLanguages" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkTheoreticalPhysics" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAppliedPhysics" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAlgorithms" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAstrophysics" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkGeneralChemistry" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkHumanComputerInteraction" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkLogicComputerScience" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkOperationsResearch" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkStatistics" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkZoology" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkNumberTheory" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkProbabilityTheory" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkFinance" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace pref="41" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="checkHistoryLiterature" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkPhylosophy" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkLinguistics" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkTheatre" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkWorldLiterature" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkHistory" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkArchitecture" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAsianHistory" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkDance" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkHistoryCulture" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkLegalManagement" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkPerformingArts" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkTelevision" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkWorldHistory" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAppliedArts" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAdministrativeLaw" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkCivilLaw" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkLiterature" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkNursing" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAnalysisStructures" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkMedicineHealth" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkStructuralDesign" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkPharmacology" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkOperationsManagement" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAudit" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBuildingMaterialsTheory" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkCapitalMarkets" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkClinicalPhysiology" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkEconometrics" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkFoodAgribusiness" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkEntrepreneurship" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkHumanResource" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkMacroeconomics" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBusiness" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkChemicalEngineering" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBusinessEntertainment" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkArchaeology" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkPoliticalScience" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkEducation" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkEconomics" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkCryptocurrencies" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkEducationalTechnology" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkEnvironmentalSciences" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkManagementStudies" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkHydrologyHydrolicSystems" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkMicroeconomics" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkPhysicalEducation" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAnthropology" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkCulturalStudies" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkEarthScience" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkGeology" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkImmunology" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkMathematicalLogic" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkTourism" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAnalysis" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkApproximationTheory" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkChemistry" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkBiochemistry" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkComputerCommunications" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkCryptography" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkNumericalAnalysis" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkOrganicChemistry" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkComputerArchitecture" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkEvolutionaryBiology" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkComputerSecurity" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkDynamicalSystems" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkProgrammingLanguages" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkTheoreticalPhysics" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAppliedPhysics" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAlgorithms" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAstrophysics" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkGeneralChemistry" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkHumanComputerInteraction" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkLogicComputerScience" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkOperationsResearch" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkStatistics" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkZoology" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkNumberTheory" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkProbabilityTheory" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -660,8 +669,12 @@
                                   <Component id="checkProbabilityTheory" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="checkZoology" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="checkFinance" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="checkFashion" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -984,7 +997,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Phylosophy"/>
+                    <Property name="text" type="java.lang.String" value="Philosophy"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="checkLinguistics">
@@ -1439,7 +1452,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Hospitality"/>
+                    <Property name="text" type="java.lang.String" value="Hospitality (management)"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="checkAnalyticalChemistry">
@@ -1516,7 +1529,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Inorganic Chemestry"/>
+                    <Property name="text" type="java.lang.String" value="Inorganic Chemistry"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="checkGraphTheory">
@@ -1934,7 +1947,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Capital Markets, Investments"/>
+                    <Property name="text" type="java.lang.String" value="Capital Markets, Investments, stocks"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="checkBuildingMaterialsTheory">
@@ -1945,7 +1958,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Building Materials and Theory"/>
+                    <Property name="text" type="java.lang.String" value="Building Materials and Theory of constructions"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="checkCulturalStudies">
@@ -2066,7 +2079,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Hydrology and hydrolic systems"/>
+                    <Property name="text" type="java.lang.String" value="Hydrology and hydraulic systems"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="checkEnvironmentalSciences">
@@ -2275,7 +2288,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Computer security"/>
+                    <Property name="text" type="java.lang.String" value="Computer security and reliability"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="checkComputerArchitecture">
@@ -2430,6 +2443,28 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Zoology"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="checkFinance">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="12" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Finance"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="checkFashion">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="12" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Fashion"/>
                   </Properties>
                 </Component>
               </SubComponents>

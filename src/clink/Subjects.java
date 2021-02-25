@@ -235,6 +235,8 @@ public class Subjects extends javax.swing.JFrame {
             checkStatistics.setSelected(true);
             checkProbabilityTheory.setSelected(true);
             checkZoology.setSelected(true);
+            checkFinance.setSelected(true);
+            checkFashion.setSelected(true);
             }
             
             if(list.contains(checkEnglishLanguage.getText().toString().trim())){
@@ -985,8 +987,8 @@ public class Subjects extends javax.swing.JFrame {
         }
         
         // Dynamical systems
-        if(list.contains(checkGeneralChemistry.getText().toString().trim())){
-            checkGeneralChemistry.setSelected(true);
+        if(list.contains(checkDynamicalSystems.getText().toString().trim())){
+            checkDynamicalSystems.setSelected(true);
         }
         
         // General chemistry
@@ -1028,7 +1030,18 @@ public class Subjects extends javax.swing.JFrame {
         if(list.contains(checkZoology.getText().toString().trim())){
             checkZoology.setSelected(true);
         }
-            
+        
+        // Finance
+        if(list.contains(checkFinance.getText().toString().trim())){
+            checkFinance.setSelected(true);
+        }
+        
+        //Fashion
+        if(list.contains(checkFashion.getText().toString().trim())){
+            checkFashion.setSelected(true);
+        }
+        
+        
         }
     }
 
@@ -1207,6 +1220,8 @@ public class Subjects extends javax.swing.JFrame {
         checkStatistics = new javax.swing.JCheckBox();
         checkProbabilityTheory = new javax.swing.JCheckBox();
         checkZoology = new javax.swing.JCheckBox();
+        checkFinance = new javax.swing.JCheckBox();
+        checkFashion = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         btnExit1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -1257,7 +1272,7 @@ public class Subjects extends javax.swing.JFrame {
         jScrollPane2.setBackground(new java.awt.Color(19, 28, 59));
 
         jPanel3.setBackground(new java.awt.Color(19, 28, 59));
-        jPanel3.setPreferredSize(new java.awt.Dimension(450, 1950));
+        jPanel3.setPreferredSize(new java.awt.Dimension(450, 1975));
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel3MouseDragged(evt);
@@ -1383,7 +1398,7 @@ public class Subjects extends javax.swing.JFrame {
 
         checkPhylosophy.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         checkPhylosophy.setForeground(new java.awt.Color(255, 255, 255));
-        checkPhylosophy.setText("Phylosophy");
+        checkPhylosophy.setText("Philosophy");
 
         checkLinguistics.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         checkLinguistics.setForeground(new java.awt.Color(255, 255, 255));
@@ -1557,7 +1572,7 @@ public class Subjects extends javax.swing.JFrame {
 
         checkHospitality.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         checkHospitality.setForeground(new java.awt.Color(255, 255, 255));
-        checkHospitality.setText("Hospitality");
+        checkHospitality.setText("Hospitality (management)");
 
         checkAnalyticalChemistry.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         checkAnalyticalChemistry.setForeground(new java.awt.Color(255, 255, 255));
@@ -1585,7 +1600,7 @@ public class Subjects extends javax.swing.JFrame {
 
         checkInorganicChemestry.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         checkInorganicChemestry.setForeground(new java.awt.Color(255, 255, 255));
-        checkInorganicChemestry.setText("Inorganic Chemestry");
+        checkInorganicChemestry.setText("Inorganic Chemistry");
 
         checkGraphTheory.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         checkGraphTheory.setForeground(new java.awt.Color(255, 255, 255));
@@ -1737,11 +1752,11 @@ public class Subjects extends javax.swing.JFrame {
 
         checkCapitalMarkets.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         checkCapitalMarkets.setForeground(new java.awt.Color(255, 255, 255));
-        checkCapitalMarkets.setText("Capital Markets, Investments");
+        checkCapitalMarkets.setText("Capital Markets, Investments, stocks");
 
         checkBuildingMaterialsTheory.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         checkBuildingMaterialsTheory.setForeground(new java.awt.Color(255, 255, 255));
-        checkBuildingMaterialsTheory.setText("Building Materials and Theory");
+        checkBuildingMaterialsTheory.setText("Building Materials and Theory of constructions");
 
         checkCulturalStudies.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         checkCulturalStudies.setForeground(new java.awt.Color(255, 255, 255));
@@ -1785,7 +1800,7 @@ public class Subjects extends javax.swing.JFrame {
 
         checkHydrologyHydrolicSystems.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         checkHydrologyHydrolicSystems.setForeground(new java.awt.Color(255, 255, 255));
-        checkHydrologyHydrolicSystems.setText("Hydrology and hydrolic systems");
+        checkHydrologyHydrolicSystems.setText("Hydrology and hydraulic systems");
 
         checkEnvironmentalSciences.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         checkEnvironmentalSciences.setForeground(new java.awt.Color(255, 255, 255));
@@ -1861,7 +1876,7 @@ public class Subjects extends javax.swing.JFrame {
 
         checkComputerSecurity.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         checkComputerSecurity.setForeground(new java.awt.Color(255, 255, 255));
-        checkComputerSecurity.setText("Computer security");
+        checkComputerSecurity.setText("Computer security and reliability");
 
         checkComputerArchitecture.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         checkComputerArchitecture.setForeground(new java.awt.Color(255, 255, 255));
@@ -1919,6 +1934,14 @@ public class Subjects extends javax.swing.JFrame {
         checkZoology.setForeground(new java.awt.Color(255, 255, 255));
         checkZoology.setText("Zoology");
 
+        checkFinance.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        checkFinance.setForeground(new java.awt.Color(255, 255, 255));
+        checkFinance.setText("Finance");
+
+        checkFashion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        checkFashion.setForeground(new java.awt.Color(255, 255, 255));
+        checkFashion.setText("Fashion");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -1926,170 +1949,176 @@ public class Subjects extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkAfricanHistory)
-                    .addComponent(checkArtDesign)
-                    .addComponent(checkCreativeWriting)
-                    .addComponent(checkPoetry)
-                    .addComponent(checkTheology)
-                    .addComponent(checkAmericanHistory)
-                    .addComponent(checkArtHistory)
-                    .addComponent(checkAncientHistory)
-                    .addComponent(checkCriminalLaw)
-                    .addComponent(checkEnglishLanguage)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(checkJurisprudence, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(checkModernHistory))
-                    .addComponent(checkFilm)
-                    .addComponent(checkLaw)
-                    .addComponent(checkMusic)
-                    .addComponent(checkRussianHistory)
-                    .addComponent(checkVisualArts)
-                    .addComponent(checkDentistry)
-                    .addComponent(checkChildcare)
-                    .addComponent(checkBusinessAnalysis)
-                    .addComponent(checkBlockchain)
-                    .addComponent(checkOther)
-                    .addComponent(checkAccounting)
-                    .addComponent(checkFluidMechanics)
-                    .addComponent(checkEngineering)
-                    .addComponent(checkDigitalInnovationTransformation)
-                    .addComponent(checkCivilEngineering)
-                    .addComponent(checkBusinessManagement)
-                    .addComponent(checkBrandValue)
-                    .addComponent(checkMarketing)
-                    .addComponent(checkAdvertising)
-                    .addComponent(checkRealProperty)
-                    .addComponent(checkMoneyBanking)
-                    .addComponent(checkMaterialsScienceEngineering)
-                    .addComponent(checkInvestmentStrategies)
-                    .addComponent(checkElectricalEngineering)
-                    .addComponent(checkHealthCare)
-                    .addComponent(checkAll)
-                    .addComponent(checkTheoryComputation)
-                    .addComponent(checkQuantumComputing)
-                    .addComponent(checkPhysicalChemistry)
-                    .addComponent(checkNutrition)
-                    .addComponent(checkMathematicalPhysics)
-                    .addComponent(checkInformationTheory)
-                    .addComponent(checkGeometry)
-                    .addComponent(checkEcology)
-                    .addComponent(checkGameTheory)
-                    .addComponent(checkDataStructures)
-                    .addComponent(checkComputerGraphics)
-                    .addComponent(checkCode)
-                    .addComponent(checkBiology)
-                    .addComponent(checkArtificialIntelligenece)
-                    .addComponent(checkAnalyticalChemistry)
-                    .addComponent(checkTopology)
-                    .addComponent(checkSpaceSciences)
-                    .addComponent(checkPhysics)
-                    .addComponent(checkOperatingSystems)
-                    .addComponent(checkMathematics)
-                    .addComponent(checkGraphTheory)
-                    .addComponent(checkInorganicChemestry)
-                    .addComponent(checkGeneralBiology)
-                    .addComponent(checkEnvironmentalChemistry)
-                    .addComponent(checkDistributedComputing)
-                    .addComponent(checkComputerScience)
-                    .addComponent(checkCellBiology)
-                    .addComponent(checkCombinatorics)
-                    .addComponent(checkAstronomy)
-                    .addComponent(checkAppliedMathematics)
-                    .addComponent(checkAlgebra)
-                    .addComponent(checkHumanGeography)
-                    .addComponent(checkCommunicationStudies)
-                    .addComponent(checkPsychology)
-                    .addComponent(checkHumanRights)
-                    .addComponent(checkSocialWork)
-                    .addComponent(checkCriminology)
-                    .addComponent(checkSociology)
-                    .addComponent(checkStrategyTechnology)
-                    .addComponent(checkNegotiation)
-                    .addComponent(checkMechanicalEngineering)
-                    .addComponent(checkHospitality)
-                    .addComponent(checkLogistics))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkHistoryLiterature)
-                    .addComponent(checkPhylosophy)
-                    .addComponent(checkLinguistics)
-                    .addComponent(checkTheatre)
-                    .addComponent(checkWorldLiterature)
-                    .addComponent(checkHistory)
-                    .addComponent(checkArchitecture)
-                    .addComponent(checkAsianHistory)
-                    .addComponent(checkDance)
-                    .addComponent(checkHistoryCulture)
-                    .addComponent(checkLegalManagement)
-                    .addComponent(checkPerformingArts)
-                    .addComponent(checkTelevision)
-                    .addComponent(checkWorldHistory)
-                    .addComponent(checkAppliedArts)
-                    .addComponent(checkAdministrativeLaw)
-                    .addComponent(checkCivilLaw)
-                    .addComponent(checkLiterature)
-                    .addComponent(checkNursing)
-                    .addComponent(checkAnalysisStructures)
-                    .addComponent(checkMedicineHealth)
-                    .addComponent(checkStructuralDesign)
-                    .addComponent(checkPharmacology)
-                    .addComponent(checkOperationsManagement)
-                    .addComponent(checkAudit)
-                    .addComponent(checkBuildingMaterialsTheory)
-                    .addComponent(checkCapitalMarkets)
-                    .addComponent(checkClinicalPhysiology)
-                    .addComponent(checkEconometrics)
-                    .addComponent(checkFoodAgribusiness)
-                    .addComponent(checkEntrepreneurship)
-                    .addComponent(checkHumanResource)
-                    .addComponent(checkMacroeconomics)
-                    .addComponent(checkBusiness)
-                    .addComponent(checkChemicalEngineering)
-                    .addComponent(checkBusinessEntertainment)
-                    .addComponent(checkArchaeology)
-                    .addComponent(checkPoliticalScience)
-                    .addComponent(checkEducation)
-                    .addComponent(checkEconomics)
-                    .addComponent(checkCryptocurrencies)
-                    .addComponent(checkEducationalTechnology)
-                    .addComponent(checkEnvironmentalSciences)
-                    .addComponent(checkManagementStudies)
-                    .addComponent(checkHydrologyHydrolicSystems)
-                    .addComponent(checkMicroeconomics)
-                    .addComponent(checkPhysicalEducation)
-                    .addComponent(checkAnthropology)
-                    .addComponent(checkCulturalStudies)
-                    .addComponent(checkEarthScience)
-                    .addComponent(checkGeology)
-                    .addComponent(checkImmunology)
-                    .addComponent(checkMathematicalLogic)
-                    .addComponent(checkTourism)
-                    .addComponent(checkAnalysis)
-                    .addComponent(checkApproximationTheory)
-                    .addComponent(checkChemistry)
-                    .addComponent(checkBiochemistry)
-                    .addComponent(checkComputerCommunications)
-                    .addComponent(checkCryptography)
-                    .addComponent(checkNumericalAnalysis)
-                    .addComponent(checkOrganicChemistry)
-                    .addComponent(checkComputerArchitecture)
-                    .addComponent(checkEvolutionaryBiology)
-                    .addComponent(checkComputerSecurity)
-                    .addComponent(checkDynamicalSystems)
-                    .addComponent(checkProgrammingLanguages)
-                    .addComponent(checkTheoreticalPhysics)
-                    .addComponent(checkAppliedPhysics)
-                    .addComponent(checkAlgorithms)
-                    .addComponent(checkAstrophysics)
-                    .addComponent(checkGeneralChemistry)
-                    .addComponent(checkHumanComputerInteraction)
-                    .addComponent(checkLogicComputerScience)
-                    .addComponent(checkOperationsResearch)
-                    .addComponent(checkStatistics)
-                    .addComponent(checkZoology)
-                    .addComponent(checkNumberTheory)
-                    .addComponent(checkProbabilityTheory))
-                .addGap(53, 53, 53))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(checkFashion)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(checkAfricanHistory)
+                            .addComponent(checkArtDesign)
+                            .addComponent(checkCreativeWriting)
+                            .addComponent(checkPoetry)
+                            .addComponent(checkTheology)
+                            .addComponent(checkAmericanHistory)
+                            .addComponent(checkArtHistory)
+                            .addComponent(checkAncientHistory)
+                            .addComponent(checkCriminalLaw)
+                            .addComponent(checkEnglishLanguage)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(checkJurisprudence, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(checkModernHistory))
+                            .addComponent(checkFilm)
+                            .addComponent(checkLaw)
+                            .addComponent(checkMusic)
+                            .addComponent(checkRussianHistory)
+                            .addComponent(checkVisualArts)
+                            .addComponent(checkDentistry)
+                            .addComponent(checkChildcare)
+                            .addComponent(checkBusinessAnalysis)
+                            .addComponent(checkBlockchain)
+                            .addComponent(checkOther)
+                            .addComponent(checkAccounting)
+                            .addComponent(checkFluidMechanics)
+                            .addComponent(checkEngineering)
+                            .addComponent(checkDigitalInnovationTransformation)
+                            .addComponent(checkCivilEngineering)
+                            .addComponent(checkBusinessManagement)
+                            .addComponent(checkBrandValue)
+                            .addComponent(checkMarketing)
+                            .addComponent(checkAdvertising)
+                            .addComponent(checkRealProperty)
+                            .addComponent(checkMoneyBanking)
+                            .addComponent(checkMaterialsScienceEngineering)
+                            .addComponent(checkInvestmentStrategies)
+                            .addComponent(checkElectricalEngineering)
+                            .addComponent(checkHealthCare)
+                            .addComponent(checkAll)
+                            .addComponent(checkTheoryComputation)
+                            .addComponent(checkQuantumComputing)
+                            .addComponent(checkPhysicalChemistry)
+                            .addComponent(checkNutrition)
+                            .addComponent(checkMathematicalPhysics)
+                            .addComponent(checkInformationTheory)
+                            .addComponent(checkGeometry)
+                            .addComponent(checkEcology)
+                            .addComponent(checkGameTheory)
+                            .addComponent(checkDataStructures)
+                            .addComponent(checkComputerGraphics)
+                            .addComponent(checkCode)
+                            .addComponent(checkBiology)
+                            .addComponent(checkArtificialIntelligenece)
+                            .addComponent(checkAnalyticalChemistry)
+                            .addComponent(checkTopology)
+                            .addComponent(checkSpaceSciences)
+                            .addComponent(checkPhysics)
+                            .addComponent(checkOperatingSystems)
+                            .addComponent(checkMathematics)
+                            .addComponent(checkGraphTheory)
+                            .addComponent(checkInorganicChemestry)
+                            .addComponent(checkGeneralBiology)
+                            .addComponent(checkEnvironmentalChemistry)
+                            .addComponent(checkDistributedComputing)
+                            .addComponent(checkComputerScience)
+                            .addComponent(checkCellBiology)
+                            .addComponent(checkCombinatorics)
+                            .addComponent(checkAstronomy)
+                            .addComponent(checkAppliedMathematics)
+                            .addComponent(checkAlgebra)
+                            .addComponent(checkHumanGeography)
+                            .addComponent(checkCommunicationStudies)
+                            .addComponent(checkPsychology)
+                            .addComponent(checkHumanRights)
+                            .addComponent(checkSocialWork)
+                            .addComponent(checkCriminology)
+                            .addComponent(checkSociology)
+                            .addComponent(checkStrategyTechnology)
+                            .addComponent(checkNegotiation)
+                            .addComponent(checkMechanicalEngineering)
+                            .addComponent(checkHospitality)
+                            .addComponent(checkLogistics))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(checkHistoryLiterature)
+                            .addComponent(checkPhylosophy)
+                            .addComponent(checkLinguistics)
+                            .addComponent(checkTheatre)
+                            .addComponent(checkWorldLiterature)
+                            .addComponent(checkHistory)
+                            .addComponent(checkArchitecture)
+                            .addComponent(checkAsianHistory)
+                            .addComponent(checkDance)
+                            .addComponent(checkHistoryCulture)
+                            .addComponent(checkLegalManagement)
+                            .addComponent(checkPerformingArts)
+                            .addComponent(checkTelevision)
+                            .addComponent(checkWorldHistory)
+                            .addComponent(checkAppliedArts)
+                            .addComponent(checkAdministrativeLaw)
+                            .addComponent(checkCivilLaw)
+                            .addComponent(checkLiterature)
+                            .addComponent(checkNursing)
+                            .addComponent(checkAnalysisStructures)
+                            .addComponent(checkMedicineHealth)
+                            .addComponent(checkStructuralDesign)
+                            .addComponent(checkPharmacology)
+                            .addComponent(checkOperationsManagement)
+                            .addComponent(checkAudit)
+                            .addComponent(checkBuildingMaterialsTheory)
+                            .addComponent(checkCapitalMarkets)
+                            .addComponent(checkClinicalPhysiology)
+                            .addComponent(checkEconometrics)
+                            .addComponent(checkFoodAgribusiness)
+                            .addComponent(checkEntrepreneurship)
+                            .addComponent(checkHumanResource)
+                            .addComponent(checkMacroeconomics)
+                            .addComponent(checkBusiness)
+                            .addComponent(checkChemicalEngineering)
+                            .addComponent(checkBusinessEntertainment)
+                            .addComponent(checkArchaeology)
+                            .addComponent(checkPoliticalScience)
+                            .addComponent(checkEducation)
+                            .addComponent(checkEconomics)
+                            .addComponent(checkCryptocurrencies)
+                            .addComponent(checkEducationalTechnology)
+                            .addComponent(checkEnvironmentalSciences)
+                            .addComponent(checkManagementStudies)
+                            .addComponent(checkHydrologyHydrolicSystems)
+                            .addComponent(checkMicroeconomics)
+                            .addComponent(checkPhysicalEducation)
+                            .addComponent(checkAnthropology)
+                            .addComponent(checkCulturalStudies)
+                            .addComponent(checkEarthScience)
+                            .addComponent(checkGeology)
+                            .addComponent(checkImmunology)
+                            .addComponent(checkMathematicalLogic)
+                            .addComponent(checkTourism)
+                            .addComponent(checkAnalysis)
+                            .addComponent(checkApproximationTheory)
+                            .addComponent(checkChemistry)
+                            .addComponent(checkBiochemistry)
+                            .addComponent(checkComputerCommunications)
+                            .addComponent(checkCryptography)
+                            .addComponent(checkNumericalAnalysis)
+                            .addComponent(checkOrganicChemistry)
+                            .addComponent(checkComputerArchitecture)
+                            .addComponent(checkEvolutionaryBiology)
+                            .addComponent(checkComputerSecurity)
+                            .addComponent(checkDynamicalSystems)
+                            .addComponent(checkProgrammingLanguages)
+                            .addComponent(checkTheoreticalPhysics)
+                            .addComponent(checkAppliedPhysics)
+                            .addComponent(checkAlgorithms)
+                            .addComponent(checkAstrophysics)
+                            .addComponent(checkGeneralChemistry)
+                            .addComponent(checkHumanComputerInteraction)
+                            .addComponent(checkLogicComputerScience)
+                            .addComponent(checkOperationsResearch)
+                            .addComponent(checkStatistics)
+                            .addComponent(checkZoology)
+                            .addComponent(checkNumberTheory)
+                            .addComponent(checkProbabilityTheory)
+                            .addComponent(checkFinance))
+                        .addGap(53, 53, 53))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2421,7 +2450,11 @@ public class Subjects extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(checkProbabilityTheory)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checkZoology)))
+                        .addComponent(checkZoology)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkFinance)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(checkFashion)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2506,23 +2539,23 @@ public class Subjects extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
                 .addComponent(subjects_btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(settings_btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(51, 51, 51))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(subjects_btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2534,11 +2567,11 @@ public class Subjects extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
         );
 
         pack();
@@ -3349,7 +3382,15 @@ public class Subjects extends javax.swing.JFrame {
             subjects.add(checkZoology.getText().toString().trim());
         }
         
+        // Finance
+        if(checkFinance.isSelected() == true){
+            subjects.add(checkFinance.getText().toString().trim());
+        }
         
+        //Fashion
+        if(checkFashion.isSelected() == true){
+            subjects.add(checkFashion.getText().toString().trim());
+        }
         
         System.out.println("Subjects "+subjects);
         if (subjects.size() > 0) { 
@@ -3564,6 +3605,8 @@ public class Subjects extends javax.swing.JFrame {
             checkStatistics.setSelected(false);
             checkProbabilityTheory.setSelected(false);
             checkZoology.setSelected(false);
+            checkFinance.setSelected(false);
+            checkFashion.setSelected(false);
         }else{
            checkEnglishLanguage.setSelected(true);
            checkAfricanHistory.setSelected(true);
@@ -3723,6 +3766,8 @@ public class Subjects extends javax.swing.JFrame {
             checkStatistics.setSelected(true);
             checkProbabilityTheory.setSelected(true);
             checkZoology.setSelected(true);
+            checkFinance.setSelected(true);
+            checkFashion.setSelected(true);
         }
         
         
@@ -4841,6 +4886,19 @@ public class Subjects extends javax.swing.JFrame {
             checkZoology.setSelected(false);
         }
         
+        //Finance 
+        if(checkFinance.isSelected() == false){
+            checkFinance.setSelected(true);
+        }else{
+            checkFinance.setSelected(false);
+        }
+        
+        //Fashion
+        if(checkFashion.isSelected() == false){
+            checkFashion.setSelected(true);
+        }else{
+            checkFashion.setSelected(false);
+        }
        
         
         
@@ -5000,7 +5058,9 @@ public class Subjects extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkEnvironmentalChemistry;
     private javax.swing.JCheckBox checkEnvironmentalSciences;
     private javax.swing.JCheckBox checkEvolutionaryBiology;
+    private javax.swing.JCheckBox checkFashion;
     private javax.swing.JCheckBox checkFilm;
+    private javax.swing.JCheckBox checkFinance;
     private javax.swing.JCheckBox checkFluidMechanics;
     private javax.swing.JCheckBox checkFoodAgribusiness;
     private javax.swing.JCheckBox checkGameTheory;
