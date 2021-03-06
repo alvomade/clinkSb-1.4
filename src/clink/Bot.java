@@ -64,9 +64,6 @@ public class Bot{
            JSONArray jsonArray=new JSONArray(response.toString());
            
            JSONObject rec = jsonArray.getJSONObject(0);
-           System.out.println(jsonArray.getJSONObject(2).getString("locator"));
-           System.out.println("Submit "+ jsonArray);
-           
            
            return jsonArray;
            
@@ -105,7 +102,8 @@ public class Bot{
    
    public static void bid(WebDriver driver,int delay,String priceLevel,Boolean refreshAfterBid,String[] filter, javax.swing.JTextArea displayLog) throws InterruptedException, IOException{
        int errorHeperer=0;
-        int i=0;     
+       int i=0;     
+       String subject="";
         JSONArray jsonArray = Bot.selectors();
         WebDriverWait wait=new WebDriverWait(driver,15);
         WebDriverWait waitKiasi=new WebDriverWait(driver,3);
@@ -143,10 +141,9 @@ public class Bot{
                 if(!filter[0].equalsIgnoreCase("all")){
                   //subject
                   String subjectPlusType="";
-                  String subject="";
-                  System.out.println(order.findElement(By.xpath("//div/div[@class='orderA__contentWrapper']/div/div/div[@class='orderA__row5']/a")).getText());
+                  System.out.println(order.findElement(By.xpath("//div[@class='orderA-converted__category']")).getText());
                   try{
-                  subjectPlusType=waitKiasi.until(ExpectedConditions.visibilityOf(order.findElement(By.xpath("//div/div[@class='orderA__contentWrapper']/div/div/div[@class='orderA__category']")))).getText();
+                  subjectPlusType=waitKiasi.until(ExpectedConditions.visibilityOf(order.findElement(By.xpath("//div[@class='orderA-converted__category']")))).getText();
                   }catch(Exception e){
                       System.out.println("kuna shida na sub");
                   }
@@ -288,6 +285,7 @@ public class Bot{
                         //start_bidding
                         try{
                         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(jsonArray.getJSONObject(14).getString("locator")))).click();
+                        
                         }
                         catch(Exception e){
                         driver.navigate().refresh();
