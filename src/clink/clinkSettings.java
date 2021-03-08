@@ -101,6 +101,25 @@ public class clinkSettings extends javax.swing.JFrame {
             //config file is not there
         }
         
+        File f3=new File(refreshPath);
+        Scanner scan3=null;
+        try {
+           scan3=new Scanner(f3);
+           while (scan3.hasNext())  { 
+              String refresh = scan3.next();
+              System.out.println(refresh);
+               if (refresh.equalsIgnoreCase("true")){
+                   checkRefresh.setSelected(true);
+               }else{
+                   checkRefresh.setSelected(false);
+               }
+               
+            }   
+        } catch (FileNotFoundException ex) {
+            
+            //config file is not there
+        }
+        
     }
 
     /**
@@ -271,7 +290,7 @@ public class clinkSettings extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(244, 244, 244));
-        jLabel7.setText("Clink studybay bot v2.2 - Settings");
+        jLabel7.setText("Clink studybay bot v2.3 - Settings");
 
         btnExit2.setBackground(new java.awt.Color(28, 39, 84));
         btnExit2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -297,8 +316,8 @@ public class clinkSettings extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnExit2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnExit1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
