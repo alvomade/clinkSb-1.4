@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import javax.swing.text.DefaultCaret;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.openqa.selenium.By;
@@ -132,6 +133,8 @@ public class Bot{
         
         displayLog.append("found "+orders.size()+" order(s) \n");
         displayLog.append("-----------------------------------------------------------------------------"+"\n");
+        DefaultCaret caret = (DefaultCaret)displayLog.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
         
         int unwanteds=0;
         for(WebElement order:orders){
@@ -143,7 +146,7 @@ public class Bot{
                   String subjectPlusType="";
                   System.out.println(order.findElement(By.xpath("//div[@class='orderA-converted__category']")).getText());
                   try{
-                  subjectPlusType=waitKiasi.until(ExpectedConditions.visibilityOf(order.findElement(By.xpath("//div[@class='orderA-converted__category']")))).getText();
+                  subjectPlusType=waitKiasi.until(ExpectedConditions.visibilityOf(order.findElement(By.xpath(jsonArray.getJSONObject(5).getString("locator"))))).getText();
                   }catch(Exception e){
                       System.out.println("kuna shida na sub");
                   }
