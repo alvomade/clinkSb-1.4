@@ -2492,7 +2492,7 @@ public class Subjects extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(244, 244, 244));
-        jLabel4.setText("Clink studybay bot v2.2 - Filter Subject");
+        jLabel4.setText("Clink studybay bot v2.4 - Filter Subject");
 
         btnExit2.setBackground(new java.awt.Color(28, 39, 84));
         btnExit2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -2518,7 +2518,7 @@ public class Subjects extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnExit2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2865,6 +2865,11 @@ public class Subjects extends javax.swing.JFrame {
         // Distributed Computing
         if(checkDistributedComputing.isSelected() == true){
             subjects.add(checkDistributedComputing.getText().toString().trim());
+        }
+        
+        // Dynamical systems
+        if(checkDynamicalSystems.isSelected() == true){
+            subjects.add(checkDynamicalSystems.getText().toString().trim());
         }
         
         // Environmental Chemistry
